@@ -1,3 +1,4 @@
+//03/06/2023//
 public class Solution {
 
 	public static boolean ratInAMaze(int maze[][]){
