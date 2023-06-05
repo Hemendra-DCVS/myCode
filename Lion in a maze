@@ -1,14 +1,14 @@
 //03/06/2023//
 public class Solution {
 
-	public static boolean ratInAMaze(int maze[][]){
+     public static boolean ratInAMaze(int maze[][]){
 		n = maze.length;
 		int path = new maze[n][n];
 		return solveMazeH(maze, 0, 0, path,n);
 
      public static boolean solveMazeH(int maze[][], int i, int j, int path[][], int n) {
 //CONDITIONS//
-     	if (i,j == 0 || i,j = path || i < 0 || i = n || j < 0 || j = n){
+     	if (maze[i][j] == 0 || path[i][j] == 1 || i < 0 || i == n || j < 0 || j == n){
 	    return false;
 	}
 	path [i],[j] = 1;
