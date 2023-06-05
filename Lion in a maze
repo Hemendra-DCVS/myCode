@@ -4,32 +4,32 @@ public class Solution {
 	public static boolean ratInAMaze(int maze[][]){
 		n = maze.length;
 		int path = new maze[n][n];
-		return solveMazeH(maze, 0, 0, path);
+		return solveMazeH(maze, 0, 0, path,n);
 
-     public static boolean solveMazeH(int maze[][], int i, int j, int path[][]){	
+     public static boolean solveMazeH(int maze[][], int i, int j, int path[][], int n) {
 //CONDITIONS//
      	if (i,j == 0 || i,j = path || i < 0 || i = n || j < 0 || j = n){
 	    return false;
 	}
 	path [i],[j] = 1;
 //DESTINATION//
-	    if (i = n-1 && j = n-1){
+	    if (i == n-1 && j == n-1){
 	    return true;	
 	}
 //DIRECTION CHANGE to right//
-      if (solveMazeH(int i, int j+1, path, n)){
+      if (solveMazeH(maze, i, j+1, path, n)){
       return true;
 }
 //bottom//
-       else if solveMazeH(int i+1, int j, path, n){
+       else if solveMazeH(maze, i+1, j, path, n){
       return true;
 }
 //top//
-      if solveMazeH(i-1, int j, path, n){
+      if solveMazeH(maze,i-1, j, path, n){
       return true;
 }
 //left//
-      if solveMazeH(int i, int j-1, path, n){
+      if solveMazeH(maze, i,  j-1, path, n){
       return true;
      }
 
