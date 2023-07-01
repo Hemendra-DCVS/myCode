@@ -1,0 +1,64 @@
+//graph print path
+import java.util.*;
+public class graph5 {
+    public static void PrintPath(int[][] AdjMatrix, int p1, int p2) {
+        boolean[] visited = new boolean[AdjMatrix.length];
+        Queue<Integer> pendingV = new LinkedList<>();
+        int[] parentarray = new int[AdjMatrix.length];
+        parentarray[p1] = -1;
+        pendingV.add(p1);
+        visited[p1] = true;
+
+        boolean pathfound = false;
+
+        while (!pendingV.isEmpty()) {
+            int CV = pendingV.poll();
+
+            if (CV == p2) {
+                pathfound = true;
+                break;
+            }
+
+            for (int i = 0; i < AdjMatrix.length; i++) {
+                if (AdjMatrix[CV][i] == 1 && !visited[i]) {
+                    pendingV.add(i);
+                    visited[i] = true;
+                    parentarray[i] = CV;
+                }
+            }
+        }
+
+        if (pathfound){
+            int Child = p2;
+            while (Child != -1) {
+                System.out.print(Child + " ");
+                Child = parentarray[Child];
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        int V = s.nextInt();
+        int E = s.nextInt();
+        int[][] AdjMatrix = new int[V][V];
+        for (int i = 0; i < E; i++) {
+            int e1 = s.nextInt();
+            int e2 = s.nextInt();
+            AdjMatrix[e1][e2] = 1;
+            AdjMatrix[e2][e1] = 1;
+        }
+        int p1 = s.nextInt();
+        int p2 = s.nextInt();
+
+        PrintPath(AdjMatrix, p1, p2);
+    }
+}
+/*
+4 4
+0 1
+0 3
+1 2
+2 3
+1 3
+ */
