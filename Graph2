@@ -1,0 +1,42 @@
+//graph Depth first transversal
+import java.io.OptionalDataException;
+import java.util.Scanner;
+
+public class graph2 {
+    public static void DFT(int AdjMatrix[][], int CV, boolean[] visited) {
+        visited[CV] = true;
+        System.out.print(CV + " ");
+        for (int i = 0; i < AdjMatrix.length; i++) {
+            if (AdjMatrix[CV][i] == 1 && visited[i] == false) {
+                DFT(AdjMatrix, i, visited);
+            }
+        }
+    }
+
+    public static void  DFT(int AdjMatrix[][]) {
+        int CV = 0;
+        boolean[] visited = new boolean[AdjMatrix.length];
+        DFT(AdjMatrix, CV, visited);
+
+
+    }
+
+
+
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        int V = s.nextInt();
+        int E = s.nextInt();
+        int AdjMatrix[][] = new int[V][V];
+        for (int i = 0; i < E; i++) {
+            int e1 = s.nextInt();
+            int e2 = s.nextInt();
+            AdjMatrix[e1][e2] = 1;
+            AdjMatrix[e2][e1] = 1;
+
+        }
+        DFT(AdjMatrix);
+
+    }
+
+}
