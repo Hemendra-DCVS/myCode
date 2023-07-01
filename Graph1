@@ -1,0 +1,25 @@
+//graph implementation with Adjacency Matrix of 2D Array
+import java.util.Scanner;
+
+public class graph {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        int V = s.nextInt();
+        int E = s.nextInt();
+        int AdjMatrix[][] = new int[V][V];
+        for (int i = 0; i < E; i++) {
+            int e1 = s.nextInt();
+            int e2 = s.nextInt();
+            AdjMatrix[e1][e2] = 1;
+            AdjMatrix[e2][e1] = 1;
+
+        }
+        for (int i = 0; i < V; i++) {
+            for (int j = 0; j < V; j++) {
+                System.out.print(AdjMatrix[i][j]);
+            }
+            System.out.println();
+
+        }
+    }
+}
