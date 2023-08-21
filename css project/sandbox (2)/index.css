@@ -1,0 +1,293 @@
+/*Home_page-css*/
+body{
+    height:100%;
+    width:100%;
+    box-sizing:border-box;
+    font-family:a;
+    background-color:#020219fb;
+    color:white;
+    font-size:4.5em;
+    }
+    a{
+        text-decoration:none;
+        color:white;
+        z-index:999;
+        font-family:a;
+    }
+    /* navbar*/
+    
+    .logo-div{
+        display:inline-block;
+        margin:1em;
+        padding:1em;
+    }
+    .logo-div > img{
+        height:105px;
+        width: 105px;
+        display:inline-block;
+        margin:1px;
+        padding:1px;
+    }
+    
+    
+    .logo-div > p{
+        
+        display:inline-block;
+        margin:10px;
+        font-size:2.4em;;
+        text-transform:uppercase;
+        transform: translateY(-25px);
+    }
+    #fav-p{
+        font-size: 2.5rem;
+        transform: translateX(25px);
+        transform: translateY(-26px);
+        display:inline-block;
+    
+    }
+    
+    
+    #search-bar{
+        transform: translateY(-5px);
+        display:inline-block;
+        height:2.5em;
+        padding: 10px;
+        font-size:1.5rem;
+    
+    }
+    .nav-flex{
+        display:flex;
+        align-items: end;
+        justify-content: end;
+        transform: translate(-2%, -220%);
+        
+    }
+    
+    .nav-flex > img{
+        height:100px;
+        width: 90px;
+        margin:1px;
+        padding:1px;
+    }
+    /* body-content > flex 1*/
+    .upper-flex{
+        display:flex;
+    }
+    .upper-flex > div > img{
+        margin:0 15px;
+        padding:10px;
+        width:250px;
+        border: 1px solid grey;
+    
+    }
+    .upper-flex > div :hover{
+        margin:0 15px;
+        padding:10px;
+        border: 1px solid lightblue;
+    
+    }
+    /* body-content > flex 2*/
+    .artist-section{
+        display:flex;
+    }
+    .artist-section > div{
+        margin:0 15px;
+        padding:10px;
+    }
+    .artist-section > div > img{
+        border-radius:50%;
+        width:250px;
+    }
+    .artist-header, .songs-header{
+        margin : 0px 25px;
+        display:block;
+    }
+    .songs-header, .artist-header > section > p {
+        font-size: 1.5rem;
+        
+    }
+    ul>li{
+        list-style-type:none;
+    }
+    
+    .song-title{
+        margin: 2px 2px 2px 2px;
+    
+    }
+    .latest-songs > ul > li > img{
+        height:150px;
+        width: 150px;
+        margin:1px;
+        padding:1px;
+    }
+    .list-latest-songs{
+        display:inline-flex;
+        
+    }
+    .list-latest-songs>li> p{
+        font-size:1.5em;
+        margin:0px 15px;
+        padding:0px 1px;
+    }
+    
+    #main-section{
+        display:inline-block;
+        width:auto;
+    }
+    /* aside section*/
+    #aside-section{
+        display:inline-block;
+        vertical-align: top;
+        margin-left: 130px;
+    }
+    #aside-list> div> img{
+        height:60px;
+        width:70px;
+        margin:0px 20px;
+        transform: translate(0%, 30%);
+    
+    }
+    #aside-list> div{
+        display:inline-block;
+        
+    }
+    
+    #aside-list> div >img{
+        border: 1px solid grey;
+        border-bottom: 2px solid white;
+        height:100px;
+        width:100px;
+    }
+    #aside-list> div :nth-child(2n){
+        color:lightblue;
+        font-size:large;
+    }
+    
+    
+    
+    
+    
+      /* Customize the appearance of the audio player controls */
+      audio {
+        width: 100% !important;
+        position: fixed !important;
+        transform: translateY(92vh);
+          /* can be modified later using JS*/
+        top:20px;
+        left:20px;
+        background-color: transparent;
+        color: darkblue; /* Set the color of the controls icons */
+      }
+    
+      audio::-webkit-media-controls-panel {
+        background-color: transparent; /* Hide the default controls panel background */
+      }
+    
+    
+      /* Additional styles to adjust the appearance of the audio player */
+      audio::-webkit-media-controls-current-time-display,
+      audio::-webkit-media-controls-time-remaining-display {
+        color: darkblue; /* Set the color of the time display */
+        font-size:1.5rem;
+        font-weight:bolder;
+      }
+    
+      audio::-webkit-media-controls-enclosure {
+        background-color: pink; /* Set the background color of the audio bar */
+        border-radius: 5px; /* Optional: Add rounded corners to the audio bar */
+      }
+    
+    
+    
+    
+    
+    
+    /* media queries for  extra screen sizes (1)*/
+    @media screen and (max-width:1400px){
+        .nav-flex{
+            transform: translate(110%, -70%);
+        }
+        
+        #main-section{
+            width:100%
+        }
+        #aside-section{
+        width:100%
+        font-size:larger;
+        }
+        
+        .artist-section, .upper-flex{
+        display:flex;
+        overflow-x: auto;
+    }
+        .list-latest-songs{
+        display:inline-flex;
+        overflow-x: auto;
+    }
+    .logo-div{
+        font-size:medium;
+
+    }
+    
+    
+    }
+    
+    
+    /* media queries for  extra screen sizes (2)*/
+    
+    @media screen and (max-width:500px){
+        .nav-flex{
+            transform: translate(110%, -70%);
+        }
+        
+        #main-section, body{
+            width:100%
+        }
+        #aside-section{
+        width:100%
+        font-size:1em;
+    }
+    .artist-section, .upper-flex{
+        display:flex;
+       
+    }
+    .songs-header, .latest-songs, .list-latest-songs{
+        display:flex;
+        width:80%;
+    }
+    *{
+        font-size:1rem !important;
+        height:auto;
+        width:auto;
+       
+    }
+    #main-section, #main-div, .list-flex, #aside-section{
+        width:100%;
+        
+    }
+    #main-section, body, #main-div, #aside-section{
+        margin-left:5px;
+    
+    }
+    #aside-list> div> p, #aside-list> div> p> a{
+        font-size:1.5rem;
+    }
+    
+    .songs-header> section > p{
+        display:block;
+    }
+
+
+    audio {
+        width: 20% !important;
+        position:fixed !important;
+        height:90%; !important;
+        top:20px;
+        left:20px;
+        z-index:-10;
+        background-color: transparent;
+        color: darkblue; /* Set the color of the controls icons */
+      }
+    
+    
+    }
