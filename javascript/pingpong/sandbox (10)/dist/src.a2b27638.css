@@ -1,0 +1,25 @@
+body {
+  font-family: sans-serif;
+}
+body{
+  display:flex;
+  justify-content: center;
+  height:100vh;
+  align-items:center;
+  margin: 0;
+  padding: 0;
+
+}
+#myCanvas{
+  background:yellow;
+  border:1px solid red ;
+  display: block;
+  max-width: 800px; /* Set a maximum width */
+  max-height: 1160px; /* Set a maximum height */
+  width: 100%;
+  height: auto;
+  
+}   
+
+
+/*# sourceMappingURL=/src.a2b27638.css.map */

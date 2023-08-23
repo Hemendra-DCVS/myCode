@@ -1,0 +1,1 @@
+//open the code from code editor like VS_CODE for proper display of game
