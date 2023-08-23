@@ -1,0 +1,369 @@
+/*artist_page-CSS*/
+body{
+    height:100%;
+    width:100%;
+    box-sizing:border-box;
+    font-family:a;
+    background-color:#020219fb;
+    color:white;
+    
+    }
+    a{
+        text-decoration:none;
+        color:white;
+        font-family:a;
+    }
+
+    .logo-div{
+        display:inline-block;
+        margin:1em;
+        padding:1em;
+    }
+    .logo-div > img{
+        height:75px;
+        width: 75px;
+        display:inline-block;
+        margin:1px;
+        padding:1px;
+    }
+    .logo-div >a> p{
+        
+        display:inline-block;
+        margin:10px;
+        font-size:2.4em;
+        text-transform:uppercase;
+        transform: translateY(-25px);
+    }
+    #fav-p{
+        font-size: 1.5rem;
+        transform: translateX(25px);
+        transform: translateY(-26px);
+        display:inline-block;
+    
+    }
+    
+    
+    #search-bar{
+        transform: translateY(-5px);
+        display:inline-block;
+        height:2em;
+        padding: 10px;
+    
+    }
+    .nav-flex{
+        display:flex;
+        align-items: end;
+        justify-content: end;
+        transform: translate(-2%, -220%);
+        
+    }
+    
+    .nav-flex > img{
+        height:50px;
+        width: 50px;
+        margin:1px;
+        padding:1px;
+    }
+    
+    /*body content starts - artistphoto container*/
+#main-div{
+    height:500px;
+    width:100%;
+    background-color:blue;
+    margin:20px 20px 20px 100px;
+    
+    display:flex;
+    flex-wrap: wrap;
+    border-radius:1%
+}
+
+#pic-div{
+    width:50%;
+    height:100%;
+    background-color:orange;
+    
+    
+}
+#pic-div > img{
+    height: 100% !important;
+    width:100% !important;
+}
+#pic-div :hover{
+    opacity:0.75;
+}
+
+#para-div{
+    background:lightblue;
+    width:50%;
+    height:100%;
+}
+
+#p1{
+    font-size:3rem;
+    color:blue;
+    border-bottom: 1px solid royalblue;
+}
+#p2{
+    color: #020219fb;
+    font-size:2em;
+}
+
+#b1{
+    background-color:black;
+    color:white;
+    font-size:1.9em;
+    margin:0px 5px;
+    padding:15px;
+    border: 6px solid orange;
+    border-radius:10%
+}
+/*list_flex is list-of-songs in main-content of artist-page*/
+.flex-li> div, .flex-li, .flex-li> div> img{
+    display:flex;
+    flex-wrap:wrap;
+    height:105px;
+    margin-bottom: 10px;
+    margin-right:50px;
+    font-size:larger;
+    align-items: center;
+    justify-content: space-between;
+    background:grey;
+    font-weight:900;
+    text-transform: uppercase;
+    
+}
+.flex-li> div> img:hover{
+    opacity:0.5;
+}
+.flex-li> div:hover{
+    opacity:0.5;
+}
+.d2{
+    margin-left:-100px;
+}
+
+
+.list-flex{
+    margin:20px 20px 20px 60px;
+    width:100%
+}
+
+#main-section{
+    width:65%;
+    display:inline-block;
+}
+
+
+
+
+/* aside section*/
+#aside-section{
+    display:inline-block;
+    vertical-align: top;
+    width:auto !important;
+    margin-left:100px !important;
+    font-size:2em;
+}
+
+#sim{
+    transform:translateX(25px);
+}
+.aside-list> div{
+    display:inline-block;
+    
+}
+
+
+.aside-list> div >img{
+    border: 1px solid grey;
+    border-bottom: 2px solid white;
+    height:150px;
+    width:150px;
+    margin:0px 20px;
+    transform: translate(0%, 30%);
+}
+.aside-list> div :nth-child(2n){
+    color:lightblue;
+    font-size:large;
+}
+
+
+  /* Customize the appearance of the audio player controls */
+  audio {
+    width: 100% !important;
+    position: fixed !important;
+    transform: translateY(92vh);
+      /* can be modified later using JS*/
+    top:20px;
+    left:20px;
+    background-color: transparent;
+    color: darkblue; /* Set the color of the controls icons */
+  }
+
+  audio::-webkit-media-controls-panel {
+    background-color: transparent; /* Hide the default controls panel background */
+  }
+
+
+  /* Additional styles to adjust the appearance of the audio player */
+  audio::-webkit-media-controls-current-time-display,
+  audio::-webkit-media-controls-time-remaining-display {
+    color: darkblue; /* Set the color of the time display */
+    font-size:1.5rem;
+    font-weight:bolder;
+  }
+
+  audio::-webkit-media-controls-enclosure {
+    background-color: pink; /* Set the background color of the audio bar */
+    border-radius: 5px; /* Optional: Add rounded corners to the audio bar */
+  }
+
+
+
+/*media queries for small screens*/
+@media screen and (max-width:1450px){
+    body{
+        width:100%
+    }
+    *{
+        font-size:0.9rem;
+        height:auto;
+        width:auto;
+    }
+    #main-section, #main-div, .list-flex, #aside-section{
+        width:90%;
+        
+    }
+    #main-section, body, #main-div, #aside-section{
+        margin-left:5px;
+    }
+    #main-div, #aside-section{
+    height:auto;
+    }
+    #main-section, #aside-section{
+        display:flex;
+        flex-wrap:wrap;
+        overflow-wrap:normal;
+        width:100%;
+        justify-content:center;
+        align-items:flex-start
+    }
+    .flex-li> div> img{
+        height:50px;
+        width:50px;
+    }
+    .flex-li> div, .flex-li, .flex-li> div> img{
+        background-color:#020219fb;
+        height:auto;
+    }
+    
+#pic-div > img{
+    height: auto !important;
+    width:100% !important;
+}
+#para-div{
+    background:lightblue;
+    width:50%;
+    height:auto !important;
+}
+
+
+    /*font-sizes stated for each elements seperately for clarity & flexibility*/
+    .flex-li> div> p{
+        font-size:1.5rem;
+    }
+    .aside-list> div> p{
+        font-size:2rem;
+    }
+    .flex-li> div> i{
+        font-size:2rem;
+    }
+    .aside-list> div> i{
+        font-size:2rem;
+    }
+    #aside-section> section{
+        font-size:2rem;
+    }
+    
+    
+
+}
+
+
+
+/*media queries for small screens*/
+@media screen and (max-width:500px){
+    body{
+        width:100%
+    }
+    *{
+        font-size:0.5rem;
+        height:auto;
+        width:auto;
+    }
+    #main-section, #main-div, .list-flex, #aside-section{
+        width:90%;
+        
+    }
+    #main-section, body, #main-div, #aside-section{
+        margin-left:5px;
+    }
+    #main-div, #aside-section{
+    height:auto;
+    }
+    #main-section, #aside-section{
+        display:flex;
+        flex-wrap:wrap;
+        overflow-wrap:normal;
+        width:100%;
+        justify-content:center;
+        align-items:flex-start
+    }
+    .flex-li> div> img{
+        height:50px;
+        width:50px;
+    }
+    .flex-li> div, .flex-li, .flex-li> div> img{
+        background-color:#020219fb;
+        height:auto;
+    }
+    
+    #sim{
+        transform:translateX(-10px);
+    }
+    .aside-list> div> img{
+        transform:translateY(20px);
+    }
+
+    
+audio {
+    width: 80% !important;
+    position:fixed !important;
+    height:99%; !important;
+    top:20px;
+    left:20px;
+    z-index:-10;
+    background-color: transparent;
+    color: darkblue; /* Set the color of the controls icons */
+  }
+
+
+    /*font-sizes stated for each elements seperately for clarity & flexibility*/
+    .flex-li> div> p{
+        font-size:1.5rem;
+    }
+    .aside-list> div> p{
+        font-size:2rem;
+    }
+    .flex-li> div> i{
+        font-size:2rem;
+    }
+    .aside-list> div> i{
+        font-size:2rem;
+    }
+    #aside-section> section{
+        font-size:2rem;
+    }
+
+}
+
