@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" href="IMDB.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="IMDB.ico" type="image/x-icon">
+
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+  <title>IMDB WEBSITE</title>
+
+  <!-- FontAwesome CDN  -->
+  <script src="https://kit.fontawesome.com/3449736a3c.js" crossorigin="anonymous"></script>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&family=Ubuntu&display=swap" rel="stylesheet">
+  <!-- Animate .css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <!-- My CSS file -->
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+  <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <img src="Site-Animated-Logo.gif" alt="site-LOGO" trigger="loop" loop="infinite">
+  <a class="navbar-brand" href="index.html">IMDB</a>
+  <button class="navbar-toggler" type="button" data-toggle="modal" data-target="#favouriteModal">
+    My Favourites  <i class="fa-solid fa-heart fa-beat"></i>
+  </button>
+</nav>
+
+  <!-- Search Bar -->
+  <div class="container mt-4">
+    <div class="card">
+      <div class="card-body">
+        <div class="input-group">
+          <input type="text" id="movie-search-box" class="form-control" placeholder="Search for Movie">
+          <div class="input-group-append">
+            <button class="btn btn-primary" type="button" id="search-btn">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Search Results -->
+  <div class="container mt-4" id="search-list">
+    <!-- Search results will be displayed here -->
+  </div>
+
+  <!-- Movie Details Modal -->
+  <div class="modal fade" id="movieDetailsModal" tabindex="-1" role="dialog" aria-labelledby="movieModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="movieModalLabel">Movie Details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body  animate__animated animate__fadeInDown animate__repeat-1 " 
+        id="movieDetailsModalBody">
+          <!-- Movie details will be displayed here -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+ 
+  
+  <!-- Favorite Movies Modal -->
+<div class="modal fade" id="favouriteModal" tabindex="-1" role="dialog" aria-labelledby="favouriteModalLabel">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="favouriteModalLabel">My Favorite Movies</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span>&times;</span>
+        </button>
+      </div>
+      <div class="modal-body animate__animated  animate__zoomIn  animate__repeat-1"
+      id="favorite-movies-section">
+        <!-- Favorite movies will be displayed here -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Back to Top Button and UP-Arrow-->
+<div class="back-to-top">
+  <a href="#top">Back to Top <i class="fa-solid fa-circle-up fa-flip"></i> </a>
+</div>
+
+  <!-- Bootstrap JS and our JS file -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>

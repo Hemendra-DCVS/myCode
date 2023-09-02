@@ -1,0 +1,217 @@
+/* Body Styles */
+body {
+  background-color: #1e1e2e;
+  font-family:cursive, 'Ubuntu', 'Sedgwick Ave Display',
+  sans-serif, system-ui;
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: #4A4A5C !important;
+}
+
+.navbar-brand {
+  color: #f8f9fa;
+  font-size: 35px;
+  font-family:  Haettenschweiler, 'Arial Narrow Bold',
+  sans-serif, system-ui;
+}
+
+.navbar-brand:hover {
+  color: #f8f9fa;
+}
+
+/* Styles for "My Favorite Movies" button */
+.navbar-toggler {
+  font-family: 'Sedgwick Ave Display', sans-serif, system-ui;; 
+  color: rgb(251, 27, 27) !important;
+  border: 3px solid white;
+  background-color: transparent;
+  display: block !important;
+  border-radius: 10px; /* Adding border-radius for rounded corners */
+  transition: background-color 0.3s, border-color 0.3s; /* Adding a transition effect */
+}
+
+.navbar-toggler:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+
+/* Search Bar Styles */
+#search-list {
+  margin-top: 20px;
+  border-radius: 0.25rem;
+  background-color: #1e1e2e;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+  border: none;
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+/* Movie Details Modal Styles */
+#movieModalLabel{
+  font-family: 'Sedgwick Ave Display', cursive, 'Ubuntu',
+  sans-serif, system-ui;
+}
+
+.modal-content {
+  border-radius: 0.5rem;
+}
+
+.modal-title {
+  font-weight: bold;
+}
+
+/* Favourite Modal Styles */
+#favouriteModalLabel{
+  font-family: 'Sedgwick Ave Display', cursive, 'Ubuntu',
+  sans-serif, system-ui;
+}
+
+#favouriteModal .card {
+  border: none;
+}
+
+#favorite-movies-section{
+  background-color:#1e1e2e; 
+  color:#EFEDFF;
+}
+
+#favorite-movies-section .card{
+  background-color: #1e1e2e; 
+}
+
+/* Favourite Button Styles */
+.btn-outline-primary {
+  border-color: #007bff;
+  color: #007bff;
+}
+
+.btn-outline-primary:hover {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+/* Remove Favourite Button Styles */
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  border-radius: 0.7em;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+  border-color: whitesmoke;
+}
+
+/* Notification Styles */
+.notification {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: #28a745;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  transition: opacity 0.5s, transform 0.5s;
+  z-index: 1000;
+}
+
+.notification.added, .exists {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.notification.removed {
+  background-color: #dc3545;
+}
+
+.notification.exists {
+  background-color: orange;
+}
+
+.notification.hidden {
+  opacity: 0;
+  transform: translateY(-50px);
+}
+
+/* Back to Top Button Styles */
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+}
+
+.back-to-top a {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.back-to-top a:hover {
+  background-color: #0056b3;
+}
+
+
+/* Hover State for Movie Cards */
+.card:hover {
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+/* Modal Styles */
+.modal-dialog {
+  max-width: 800px;
+}
+
+/* Centering Modal Content */
+.modal-dialog-centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Adjust Modal Content */
+.modal-content {
+  padding: 20px;
+}
+
+/* Favorite Movies Page Styles */
+#favouriteModalBody {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+/* Remove Scrollbar from Modal */
+#favouriteModalBody::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+#favouriteModalBody::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+html{
+scroll-behavior: smooth;
+}
+
+
+
+/* Media Queries */
+@media (max-width: 768px) {
+  /* Adjust styles for smaller screens */
+  .modal-dialog {
+    width: 90%;
+    max-width: none;
+  }
+}
