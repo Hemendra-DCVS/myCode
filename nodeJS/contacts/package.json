@@ -1,0 +1,16 @@
+{
+  "name": "contacts",
+  "version": "1.0.0",
+  "description": "List of contacts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Author_name",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "mongoose": "^7.5.1"
+  }
+}
