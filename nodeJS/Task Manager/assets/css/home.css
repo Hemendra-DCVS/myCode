@@ -1,0 +1,41 @@
+/* Apply background color to the entire body */
+body {
+  background-color: aqua;
+}
+
+/* Style the page heading text */
+#page-heading {
+    color: #002fff; /* Set the text color to a shade of blue */
+    font-size: 36px; /* Increase the font size */
+    margin-bottom: 20px; /* Add some margin at the bottom for spacing */
+    text-align: center; /* Center-align the text */
+    text-transform: uppercase; /* Transform text to uppercase */
+    font-weight: bold; /* Apply bold font-weight */
+    letter-spacing: 2px; /* Add letter-spacing for better readability */
+  
+}
+
+/* Style the task items */
+.task-item {
+  display: flex; /* Use a flex container for item layout */
+  align-items: center; /* Vertically align items within the container */
+  justify-content: space-between; /* Distribute space evenly between items */
+  margin-bottom: 10px; /* Add margin between task items */
+}
+
+/* Style the task checkbox */
+.task-checkbox {
+  transform: scale(1.5); /* Increase the size of the checkbox */
+  margin-right: 10px; /* Add spacing between the checkbox and task details */
+}
+
+/* Style the task label */
+.task-details {
+  flex-grow: 1; /* Allow the label to expand and occupy available space */
+}
+
+/* Style the delete button */
+.delete-form {
+  margin-top: 10px; /* Add margin to the top of the delete button */
+  text-align: right; /* Align the delete button to the right within its container */
+}
