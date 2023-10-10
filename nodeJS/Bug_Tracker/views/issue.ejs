@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ISSUES: <%= project.projectTitle %></title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/issue.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <!-- Left side of the navbar -->
+      <a class="navbar-brand" href="#">
+        <i class="fas fa-bug"></i> Issue Tracker
+      </a>
+      <!-- Right side of the navbar -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" id="issue-create" href="#create-issue">Create issue</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#view-issues">View issues</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container mt-5">
+    <h1 class="display-4 text-primary" id="view-issues">Issues for <%= project.projectTitle %> </h1>
+    
+    <!-- Search Bar -->
+    <div class="container mt-3">
+      <div class="form-group">
+        <label for="search-query">Search by title and description:</label>
+        <input type="text" id="search-query" class="form-control" placeholder="Enter search query">
+      </div>
+    </div>
+
+    <!-- Filter Button and Options -->
+    <button class="filter-button" type="button" id="filter-button">Filter</button>
+    <div class="filter-container" id="filter-container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="labels-filter">Labels</label>
+            <div id="labels-filter" class="filter-box">
+              <!-- Labels checkboxes will be populated here -->
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="author-filter">Authors</label>
+            <div id="author-filter" class="filter-box">
+              <!-- Author checkboxes will be populated here -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Table to Display Issues -->
+    <div class="container mt-3">
+      <table class="table table-bordered table-hover custom-table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Issue Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Author</th>
+            <th scope="col">Labels</th>
+          </tr>
+        </thead>
+        <tbody id="issue-table-body">
+          <% issues.forEach(issue => { %>
+            <tr>
+              <td class="font-weight-bold text-primary"><%= issue.issueTitle %></td>
+              <td><%= issue.description %></td>
+              <td><%= issue.Author %></td>
+              <td><%= issue.labels.join(', ') %></td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Create Issue Section -->
+  <div class="container mt-5">
+    <h1 id="create-issue" class="display-4 text-primary text-center">Create Issue for <%= project.projectTitle %></h1>
+    <form action="/projects/<%= project._id %>/new-issue" method="POST">
+      <div class="form-group">
+        <label for="issueTitle">Issue Title:</label>
+        <input type="text" class="form-control" id="issueTitle" name="issueTitle" placeholder="Enter issue title" required>
+      </div>
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea class="form-control" id="description" name="description" rows="4" placeholder="Enter issue description" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="Author">Author:</label>
+        <input type="text" class="form-control" id="Author" name="Author" placeholder="Enter author name" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="labels">Labels:</label>
+        <div>
+          <!-- Common Labels -->
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="bugs" name="labels" value="BUGS">
+            <label class="form-check-label" for="bugs">BUGS</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="new-feature" name="labels" value="New feature">
+            <label class="form-check-label" for="new-feature">New feature</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="patch" name="labels" value="patch">
+            <label class="form-check-label" for="patch">patch</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="frontend" name="labels" value="frontend">
+            <label class="form-check-label" for="frontend">frontend</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="backend" name="labels" value="backend">
+            <label class="form-check-label" for="backend">backend</label>
+          </div>
+          
+          <!-- Additional Labels -->
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="ui" name="labels" value="UI">
+            <label class="form-check-label" for="ui">UI</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="security" name="labels" value="Security">
+            <label class="form-check-label" for="security">Security</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="performance" name="labels" value="Performance">
+            <label class="form-check-label" for="performance">Performance</label>
+          </div>
+          <!-- Add more labels as needed -->
+        </div>
+      </div>
+      
+      
+      
+      
+      
+      
+      <button type="submit" class="btn btn-primary">Create Issue</button>
+    </form>
+  </div>
+
+  <!-- Back to Top Button -->
+  <div class="back-to-top">
+    <a href="#top">Go to Top <i class="fa-solid fa-circle-up fa-flip"></i></a>
+  </div>
+
+  <!-- Scripts -->
+  <script src="/assets/JavaScript/issue.script.js"></script>
+</body>
+</html>

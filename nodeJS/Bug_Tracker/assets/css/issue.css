@@ -1,0 +1,167 @@
+/* Custom CSS Styles */
+
+.issue-title {
+  color: #007bff; /* Blue color for issue titles */
+}
+
+.custom-table {
+  font-family: 'Roboto', sans-serif; /* Replace 'Roboto' with your desired font family */
+}
+
+/* Styling for the filter box */
+.row {
+  margin-top: 10px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-check {
+  margin-bottom: 5px;
+}
+
+.form-check-label {
+  margin-left: 5px;
+}
+
+.col-md-6 {
+  width: 50%;
+  float: left;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+/* Styling for the two-column layout */
+.row {
+  margin-top: 20px;
+}
+
+.col-md-6 {
+  width: 50%;
+  float: left;
+  padding: 0 15px;
+}
+
+/* Styling for the labels box */
+#labels-filter {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 4px;
+  max-height: 300px;
+  overflow-y: auto;
+  background-color: #f9f9f9;
+}
+
+/* Styling for the authors box */
+#author-filter {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 4px;
+  max-height: 300px;
+  overflow-y: auto;
+  background-color: #f9f9f9;
+}
+
+/* Styling for label and author checkboxes */
+.form-check {
+  margin-bottom: 5px;
+}
+
+.form-check-label {
+  margin-left: 5px;
+}
+
+/* Styling for labels and authors headings */
+h4 {
+  color: #333;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* Add your custom CSS styles here */
+
+/* Styling for the filter button */
+#filter-button {
+  margin-top: 10px;
+}
+
+/* Styling for the filter box */
+.filter-box {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+
+/* Styling for the filter box when open */
+.filter-box.show {
+  max-height: 300px;
+  padding: 10px;
+}
+
+/* Styling for the form group elements */
+.form-group {
+  margin-bottom: 15px;
+}
+
+/* Styling for the form check elements */
+.form-check {
+  margin-bottom: 5px;
+}
+
+/* Styling for the form check labels */
+.form-check-label {
+  margin-left: 5px;
+}
+
+/* Filter button styles */
+.filter-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+/* Filter container styles */
+.filter-container {
+  display: none;
+}
+
+/* Show the filter container when the show class is added */
+.filter-container.show {
+  display: block;
+}
+
+/* Label and checkbox styles */
+.form-group label {
+  font-weight: bold;
+}
+
+.form-check {
+  margin-top: 10px;
+}
+
+
+/* Back to Top Button Styles */
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+}
+
+.back-to-top a {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.back-to-top a:hover {
+  background-color: #0056b3;
+}
