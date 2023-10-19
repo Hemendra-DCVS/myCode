@@ -1,0 +1,56 @@
+<div class="container mt-5">
+    <h1>Welcome to Dashboard</h1>
+    
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#performace-reviews"> Awaiting performace reviews </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#submit-feedback-section">Submit Feedback</a>
+            </li>
+           
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link text-white bg-danger" href="/logout">Logout</a>
+            </li>
+        </ul>
+    </nav>
+    <hr>
+    <h2 id="performace-reviews">Performance Reviews Requiring Feedback:</h2>
+    <ul class="list-group">
+        <% if (performanceReviews.length > 0) { %>
+            <% performanceReviews.forEach(function(review) { %>
+                <li class="list-group-item">
+                    <a href="/performance-review/<%= review._id %>">
+                        <%= review.title %>
+                    </a>
+                </li>
+            <% }); %>
+        <% } else { %>
+            <li class="list-group-item">No performance reviews requiring feedback at the moment.</li>
+        <% } %>
+    </ul>
+
+    <h2 id="submit-feedback-section">Submit Feedback:</h2>
+    <form action="/feedback/submit-feedback" method="POST">
+        <div class="mb-3">
+            <label for="reviewId" class="form-label">Select a Performance Review:</label>
+            <select class="form-select" id="reviewId" name="reviewId">
+                <% performanceReviews.forEach(function(review) { %>
+                    <option value="<%= review._id %>"><%= review.title %></option>
+                <% }); %>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="feedback" class="form-label">Feedback:</label>
+            <textarea class="form-control" id="feedback" name="feedbackText" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">
+            Submit Feedback
+        </button>
+    </form>
+</div>

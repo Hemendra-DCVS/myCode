@@ -1,0 +1,33 @@
+<!-- views/partials/review-detail.ejs -->
+
+<div class="container mt-5">
+    <h1>Performance Review: <%= performanceReview.title %></h1>
+    <p><strong>Description:</strong> <%= performanceReview.description %></p>
+
+    <!-- Display feedback submission form if allowed -->
+    <% if (allowFeedbackSubmission) { %>
+        <h2>Submit Feedback</h2>
+        <form method="POST" action="/submit-feedback">
+            <input type="hidden" name="performanceReviewId" value="<%= performanceReview._id %>">
+            <div class="form-group">
+                <label for="feedbackText">Feedback</label>
+                <textarea id="feedbackText" name="feedbackText" class="form-control" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Feedback</button>
+        </form>
+    <% } else { %>
+        <p>Feedback submission for this performance review is currently closed.</p>
+    <% } %>
+
+    <!-- Display feedback if available -->
+    <h2>Feedback</h2>
+    <% if (feedback.length > 0) { %>
+        <ul class="list-group">
+            <% feedback.forEach(function(feedbackItem) { %>
+                <li class="list-group-item"><%= feedbackItem.feedbackText %></li>
+            <% }); %>
+        </ul>
+    <% } else { %>
+        <p>No feedback available for this performance review yet.</p>
+    <% } %>
+</div>

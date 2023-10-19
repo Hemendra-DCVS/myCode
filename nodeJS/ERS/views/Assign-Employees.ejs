@@ -1,0 +1,18 @@
+<div class="container mt-5">
+    <h2>Assign Employees to Participate in a Performance Review</h2>
+    <form action="/performance-review/assign-employees/<%= performanceReview._id %>" method="POST">
+        <div class="mb-3">
+            <label for="assignedEmployees" class="form-label">Assigned Employees</label>
+            <% employees.forEach(employee => { %>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="employee<%= employee._id %>" name="assignedEmployees" value="<%= employee._id %>">
+
+                    <label class="form-check-label" for="employee<%= employee._id %>"><%= employee.username %></label>
+                </div>
+            <% }); %>
+        </div>
+        <button type="submit" class="btn btn-primary">
+            <i class="fas fa-save"></i> Assign Employees
+        </button>
+    </form>
+</div>
