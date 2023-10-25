@@ -41,6 +41,12 @@ Use the project detail page to filter issues by labels, filter by author, and se
 Create a new issue for the project by clicking on the "Create Issue" button.
 
 
+# [Links]
+-Hosted link :  https://bug-tracker-0lvd.onrender.com
+-Demo Video : https://youtu.be/LVRXSakz9tQ
+-Github Repository : https://github.com/Hemendra-DCVS/Bug_Tracker
+
+
 
 # [Author]
 -Name : Hemendra

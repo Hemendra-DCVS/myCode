@@ -45,6 +45,10 @@ For the testing purpose, Please use these credentials below, for logging into th
 admino
 
 
+# [Links]
+-Hosted link :  https://ers-app-arrx.onrender.com
+-Demo Video : https://youtu.be/irFF9ukoZqE
+-Github Repository : https://github.com/Hemendra-DCVS/Employee_Review_System
 
 # [Author]
 -Name : Hemendra
