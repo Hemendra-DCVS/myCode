@@ -1,0 +1,68 @@
+//sum of even numbers and sum of odd numbers
+
+import java.util.Scanner;
+public class Main {
+	
+	public static void main(String[] args) {
+	 Scanner s = new Scanner(System.in);
+	 String inputnum = s.nextLine();
+
+	 char currentnumber;
+	 int n;
+	 int evensum = 0;
+	 int oddsum = 0;
+
+	 for (int i=0; i< inputnum.length(); i++){
+		 currentnumber = inputnum.charAt(i);
+		 n =   Character.getNumericValue(currentnumber);
+
+		 if( n % 2 == 0){
+			 evensum = (evensum + n);
+
+		 }else{
+			 oddsum = (oddsum + n);
+		 }
+	 }
+	 System.out.print(evensum + " " + oddsum);
+
+	}
+}
+
+
+// Sum of even & odd
+// Write a program to input an integer 'n' and print the sum of all its even digits and the sum of all its odd digits separately.
+
+// Example :
+// Input: 'n' = 132456
+// Output: 12 9
+
+// Explanation:
+// The sum of even digits = 2 + 4 + 6 = 12
+// The sum of odd digits = 1 + 3 + 5 = 9
+
+// another approach(2)
+import java.util.Scanner;
+public class Main {
+	
+	public static void main(String[] args) {
+	 Scanner s = new Scanner(System.in);
+	 
+	 int number = s.nextInt();
+	 int digit;
+	 int evensum = 0;
+	 int oddsum = 0;
+
+	 while(number > 0){
+		 digit = number % 10;
+		 if (digit % 2 == 0){
+			 evensum = evensum + digit;
+
+		 }else{
+			oddsum = oddsum + digit;
+		 }
+		 number = (number/10);
+
+	 }
+	System.out.print(evensum + " " + oddsum);
+	}
+}
