@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <title>React App</title>
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+       
+        let fullArray = [] ;
+
+
+
+        function handleSubmit(event){
+            console.log(event)
+            event.preventDefault();
+            const name = event.target.querySelector('input[name="name"]').value;
+         const marks = event.target.querySelector('input[name="marks"]').value;
+            let row = [name, marks];
+            fullArray.push(row);
+
+            console.log(row)
+            console.log(fullArray);
+
+            event.target.reset();
+            rootElement.render(<App />);
+
+
+
+
+        }
+
+
+
+
+
+
+      const Form = () => 
+      <>
+      <form onSubmit ={handleSubmit} >
+      <h1>Student's form</h1>
+      <input name = "name" placeholder = "Name" type="text" />
+      <input name = "marks" placeholder = "Marks" type= "number" />
+      <button type="submit" > Submit </button>
+      </form>
+      </>;
+
+      const Result = () => 
+      <><div>
+      <table border="1px">
+        <thead><tr>
+            <th>Student's name </th>
+            <th>marks </th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            {fullArray.map(singleRow => (
+                <tr key={singleRow} >
+                <td>{singleRow[0]}</td>
+                <td>{singleRow[1]}</td>
+                </tr>
+            ))}
+            
+
+            
+        </tbody>
+        
+      </table>
+        </div></>;
+
+      const App = () => (
+        <>
+          <Form />
+          <Result />
+        </>
+      );
+
+      const rootElement = ReactDOM.createRoot(document.getElementById("root"));
+      rootElement.render(<App />);
+    </script>
+  </body>
+</html>
