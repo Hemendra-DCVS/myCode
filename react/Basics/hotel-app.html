@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>React App</title>
+    <link rel="stylesheet" href="hotelapp.css" />
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      let customers = [];
+      const capacity = 25;
+      let seatsLeft = 25;
+      function handleCheckout(cust){
+         console.log(cust);
+         seatsLeft = parseInt(cust.guestcount) + seatsLeft;
+
+         customers.forEach((cust, i) => {
+          if (cust.phonenumber === customers[i].phonenumber) {
+            const date = new Date();
+            const formattedTime = date.toLocaleTimeString('en-US', { hour12: false, hour: 'numeric', minute: 'numeric', second: 'numeric' });
+            customers[i].checkout = formattedTime;
+          }
+        });
+
+         rootElement.render(<App />);
+      };
+      function removeEntry(cust){
+
+        customers.forEach((cust, i) => {
+          if(cust.phonenumber === customers[i].phonenumber){
+            if(!cust.checkout){
+              seatsLeft = parseInt(cust.guestcount) + seatsLeft;
+
+            }
+            customers.splice(i, 1);
+          }
+        });
+        rootElement.render(<App />);
+      };
+
+      
+      function handleSubmit(event){
+            
+            event.preventDefault();
+            const guestcount = event.target.querySelector('input[name="guestcount"]').value;
+            const name = event.target.querySelector('input[name="name"]').value;
+            const phonenum = event.target.querySelector('input[name="phonenum"]').value;
+            console.log(guestcount, name, phonenum);
+            if( (seatsLeft - guestcount) < 0){
+              window.alert("sorry, seats not available");
+              return;
+            }
+            const date = new Date();
+            const formattedTime = date.toLocaleTimeString('en-US', { hour12: false, hour: 'numeric', minute: 'numeric', second: 'numeric' });
+            console.log(formattedTime);
+
+            const newCustomer = {
+              guestcount:guestcount,
+              name:name,
+              phonenum:phonenum,
+
+              checkin: formattedTime,
+              checkout: false
+            };
+            console.log(newCustomer);
+            customers.push(newCustomer);
+            seatsLeft = (seatsLeft - guestcount);
+
+            event.target.reset();
+            rootElement.render(<App />);
+        }
+
+      const App = () => (
+        <div className="App" style={{ textAlign: "center" }}>
+          <div>
+            <h2>Total Capacity: {capacity}  </h2>
+            <h2>Seats Left: {seatsLeft} </h2>
+          </div>
+
+          <form onSubmit ={handleSubmit} >
+            <input placeholder = "guestcount" type="number" name="guestcount" />
+            <input placeholder = "name" name="name" />
+            <input  placeholder = "phonenumber"  name="phonenum" />
+            <button type="submit"  > Add Entry </button>
+          </form>
+
+          
+          <table border="1px" style={{ margin: "auto" }}>
+            <thead> 
+            <tr>
+              <th>Count</th>
+              <th>Name</th>
+              <th>Phone</th>
+              <th>Checkin</th>
+              <th>Checkout</th>
+              <th>Status</th>
+              <th>Remove</th>
+            </tr>
+            </thead>
+            <tbody>
+              
+              
+              {customers.map(cust => (
+                <tr key={cust.phonenum}>
+              <td> {cust.guestcount} </td>
+              <td>{cust.name}</td>
+              <td>{cust.phonenum}</td>
+              <td>{cust.checkin}</td>
+              <td>{cust.checkout? cust.checkout : "--" }</td>
+              <td onClick={() => !cust.checkout && handleCheckout(cust)}> {cust.checkout? "Served" : "Checkout?" } </td>
+              <td onClick={() => removeEntry(cust)}> delete </td>
+                </tr>
+
+              ))}
+
+
+          
+            </tbody>
+            
+          </table>
+        </div>
+      );
+
+      const rootElement = ReactDOM.createRoot(document.getElementById("root"));
+      rootElement.render(<App />);
+    </script>
+
+  </body>
+</html>
