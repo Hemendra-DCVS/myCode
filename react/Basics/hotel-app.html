@@ -21,33 +21,57 @@
       let customers = [];
       const capacity = 25;
       let seatsLeft = 25;
+      // function handleCheckout(cust){
+      //    console.log(cust);
+      //    seatsLeft = parseInt(cust.guestcount) + seatsLeft;
+
+      //    customers.forEach((cust, i) => {
+      //     if (cust.phonenumber === customers[i].phonenumber) {
+      //       const date = new Date();
+      //       const formattedTime = date.toLocaleTimeString('en-US', { hour12: false, hour: 'numeric', minute: 'numeric', second: 'numeric' });
+      //       customers[i].checkout = formattedTime;
+      //     }
+      //   });
+
+      //    rootElement.render(<App />);
+      // };
       function handleCheckout(cust){
-         console.log(cust);
-         seatsLeft = parseInt(cust.guestcount) + seatsLeft;
+        const index = customers.findIndex((customer) => (customer.phonenumber === cust.phonenumber));
+        seatsLeft = parseInt(customers[index].guestcount) + seatsLeft;
+        const date = new Date();
+        const formattedTime = date.toLocaleTimeString('en-US', { hour12: false, hour: 'numeric', minute: 'numeric', second: 'numeric' });
+        customers[index].checkout = formattedTime;
 
-         customers.forEach((cust, i) => {
-          if (cust.phonenumber === customers[i].phonenumber) {
-            const date = new Date();
-            const formattedTime = date.toLocaleTimeString('en-US', { hour12: false, hour: 'numeric', minute: 'numeric', second: 'numeric' });
-            customers[i].checkout = formattedTime;
-          }
-        });
 
-         rootElement.render(<App />);
-      };
-      function removeEntry(cust){
-
-        customers.forEach((cust, i) => {
-          if(cust.phonenumber === customers[i].phonenumber){
-            if(!cust.checkout){
-              seatsLeft = parseInt(cust.guestcount) + seatsLeft;
-
-            }
-            customers.splice(i, 1);
-          }
-        });
         rootElement.render(<App />);
       };
+
+
+
+      // function removeEntry(cust){
+
+      //   customers.forEach((customer, i) => {
+      //     if(customer.phonenumber === customers[i].phonenumber){
+      //       if(!customer.checkout){
+      //         seatsLeft = parseInt(custom.guestcount) + seatsLeft;
+
+      //       }
+      //       customers.splice(i, 1);
+      //     }
+      //   });
+      //   rootElement.render(<App />);
+      // };
+        function removeEntry(cust) {
+          const index = customers.findIndex((customer) => customer.phonenumber === cust.phonenumber);
+          if (index !== -1) {
+            if (!customers[index].checkout) {
+              seatsLeft += parseInt(customers[index].guestcount);
+            }
+            customers.splice(index, 1);
+            rootElement.render(<App />);
+          }
+          }
+
 
       
       function handleSubmit(event){
