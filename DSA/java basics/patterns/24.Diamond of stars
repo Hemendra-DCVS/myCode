@@ -1,0 +1,28 @@
+import java.util.Scanner;
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int firstHalf =(n + 1) /2;
+        int secondHalf = n / 2;
+
+        for(int i =1; i<=firstHalf; i++){
+            for(int j = firstHalf; j>i; j--){
+                System.out.print(" ");
+            }
+            for(int k = 1;k<=(i*2)-1; k++){
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+        for(int l = secondHalf; l >= 1; l--){
+           for(int m = 0; m < secondHalf - l +1; m++){
+               System.out.print(" ");
+           }
+           for(int o = 1; o <= 2*l - 1; o++ ){
+               System.out.print("*");
+           }
+            System.out.println();
+        }
+    }
+}

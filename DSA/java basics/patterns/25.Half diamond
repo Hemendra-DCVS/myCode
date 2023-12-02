@@ -1,0 +1,44 @@
+
+import java.util.*;
+public class Solution {
+    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+       int  secondHalf = n+1/2;
+       int  firstHalf = n; 
+       System.out.print("*");
+       System.out.println();
+     for(int i =1; i<=firstHalf; i++){
+         for(int j = 0; j<1; j++){
+             System.out.print("*");
+         }
+         for(int k = 1; k<= i; k++){
+             System.out.print(k);
+         }
+         for(int l = i-1; l>=1; l--){
+             System.out.print(l);
+         };
+         System.out.print("*");
+         System.out.println();
+     }
+      for(int i = secondHalf; i>1; i--){
+                for(int j = 0; j<1; j++){
+                    System.out.print("*");
+                }
+                for(int k=1; k< i; k++){
+                    System.out.print(k);
+                }
+                for(int l = secondHalf; l <= 1; l--){
+                    System.out.print(l);
+                }
+                for(int m = i-2; m>= 1; m--){
+                    System.out.print(m);
+                }
+               System.out.print("*");
+               System.out.println();
+        }
+        System.out.print("*");
+             
+    }
+}
