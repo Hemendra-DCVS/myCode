@@ -1,0 +1,30 @@
+
+import java.util.*;
+
+public class Solution {
+	
+	public static void main(String[] args) {
+		// Write your code here
+        Scanner sc = new Scanner(System.in)	;
+	    int n = sc.nextInt();
+		int sum = 0;
+		int n1 = 1;
+		int n2 = 1;
+        if(n == 1){
+            System.out.print("1");
+            return;
+        }else if(n == 2){
+            System.out.print("1");
+            return;
+        }else{
+        for(int i= 1; i<=n-2; i++){
+          sum = n1 + n2;
+		   n2 = n1;
+		  n1 = sum;
+		 
+        }
+        System.out.print(sum);
+        }
+
+	}
+}

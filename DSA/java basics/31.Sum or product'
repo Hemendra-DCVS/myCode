@@ -1,0 +1,32 @@
+import java.util.*;
+public class Main {
+	public static void sum(int n){
+		int result = 0;
+		for(int i=1; i<=n; i++){
+			result = result + i;
+		}
+		System.out.print(result);
+	}
+	public static void product(int n){
+		int result = 1;
+		for(int i=1; i<=n; i++){
+			result = result * i;
+		}
+		System.out.print(result);
+	}
+	
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in)	;
+		int n = sc.nextInt();
+		int Ch = sc.nextInt();
+		if( Ch == 1){
+			sum(n);
+		}else if( Ch == 2 ){
+			product(n);
+		}else {
+			System.out.print("-1");
+		}
+		
+	}
+}
