@@ -1,0 +1,16 @@
+import java.util.*;
+public class Main {
+	public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in)	;
+        int n = sc.nextInt();
+			long power = 1;
+			long result = 0;
+		while (n>0){
+			long number = n%2;
+			result = result + number * power;
+			n = n/2;
+			power = power * 10;
+		}
+		System.out.print(result);
+	}
+}

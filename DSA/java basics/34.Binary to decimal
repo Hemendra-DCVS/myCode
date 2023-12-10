@@ -1,16 +1,29 @@
 import java.util.*;
 public class Main {
+	public static int converter(int n){
+		String number = Integer.toString(n);
+		int numLength = number.length();
+		int j = 0;
+		int decimal = 0;
+		for(int i = numLength-1; i>=0; i--){
+			//get the digit
+			char digit = number.charAt(i);
+			if(digit == '1'){
+				int power = (int)Math.pow(2, j);
+				decimal = decimal + power;
+				
+			}
+			j++;
+		}
+		return decimal;
+
+
+	}
 	public static void main(String[] args) {
         Scanner sc = new Scanner(System.in)	;
         int n = sc.nextInt();
-			long power = 1;
-			long result = 0;
-		while (n>0){
-			long number = n%2;
-			result = result + number * power;
-			n = n/2;
-			power = power * 10;
-		}
-		System.out.print(result);
+		int result = converter(n);
+        System.out.print(result);
+
 	}
 }
