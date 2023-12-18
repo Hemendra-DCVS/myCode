@@ -1,6 +1,5 @@
 
 public class Solution {
-	
 	public static boolean checkMember(int n){
 		int n1 = 1;
 		int n2 = 1;
@@ -11,15 +10,10 @@ public class Solution {
 			int sum = n1+n2;
 			n2 = n1;
 			n1 = sum;
-
 			if(sum == n){
 				return true;
 			}
-
 		}
 		return false;
-
 	}
-	
-
 }
