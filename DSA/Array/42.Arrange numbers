@@ -1,0 +1,23 @@
+
+public class Solution {
+    public static void arrange(int[] arr, int n) {
+    	//Your code goes here
+     int count = 1;
+     int left = 0;
+     int right = arr.length-1;
+    
+     while(count <= n ){
+         if (count%2 == 1){
+             arr[left] = count;
+             left++;
+             count++;
+         }
+         else{
+             arr[right] = count;
+             right--;
+             count++;
+         }
+         
+        }
+    }
+}
