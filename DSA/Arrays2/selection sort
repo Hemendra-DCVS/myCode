@@ -1,0 +1,19 @@
+
+
+public class Solution {
+    public static void selectionSort(int[] arr) {
+        for(int i = 0; i<arr.length-1; i++){
+            int minimum = Integer.MAX_VALUE;
+            int swapindex = Integer.MAX_VALUE;
+            for(int j = i; j<arr.length; j++){
+                if(arr[j] < minimum){
+                    minimum = arr[j];
+                    swapindex = j;
+                }
+                
+            }
+            arr[swapindex] = arr[i];
+            arr[i] = minimum; 
+        }
+    }
+}   

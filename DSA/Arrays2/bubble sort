@@ -1,0 +1,17 @@
+
+public class Solution {
+    public static void bubbleSort(int[] arr, int n) {
+        //Your code goes here
+        for(int j = arr.length-1; j>0; j--){ 
+        for(int i = 0; i<j; i++){
+            int current = i;
+            int next = i+1;
+            if(arr[current] > arr[next]){
+                int swap = arr[current];
+                arr[current] = arr[next];
+                arr[next]  = swap; 
+            }
+        }
+        }
+    }
+}
