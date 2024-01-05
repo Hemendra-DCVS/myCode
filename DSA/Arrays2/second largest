@@ -1,0 +1,21 @@
+public class Solution {
+    public static int secondLargestElement(int[] arr, int n) {
+        int largest = Integer.MIN_VALUE;
+        int largestindex = Integer.MIN_VALUE;
+        for(int i=0; i<arr.length; i++){
+            if(arr[i] > largest){
+                largest = arr[i];
+                largestindex = i;
+            }
+        }
+        arr[largestindex] = -1;
+         largest = -1;
+        for(int i=0; i<arr.length; i++){
+            if(arr[i] > largest){
+                 largest = arr[i];
+                 largestindex = i;
+            }
+        }
+        return arr[largestindex];
+    }
+}

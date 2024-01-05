@@ -1,27 +1,32 @@
 
-public class Solution {  
-
+public class Solution {
     public static int[] merge(int arr1[], int arr2[]) {
-    	//Your code goes here
         int sortedLength = arr1.length + arr2.length;
         int count = 0;
         int point = 0;
         int  joint = 0;
         int[] arr3 = new int[sortedLength];
-
-        for(int i=0; i<=sortedLength; i++){
-            if(arr1[count] > arr2[point] ){
+        while(count < arr1.length && point < arr2.length){
+            if(arr1[count] < arr2[point] ){
                 arr3[joint] = arr1[count];
                 joint++;
-                count++; 
+                count++;
             }else{
                 arr3[joint] = arr2[point];
                 joint++;
                 point++;
             }
         }
+        while(count < arr1.length){
+             arr3[joint] = arr1[count];
+                joint++;
+                count++;
+        }
+        while( point < arr2.length){
+             arr3[joint] = arr2[point];
+             joint++;
+             point++;
+        }
         return arr3;
-        
     }
-
 }
