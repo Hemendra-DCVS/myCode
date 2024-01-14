@@ -1,0 +1,25 @@
+
+public class Solution {
+    public static void sumOfTwoArrays(int arr1[], int arr2[], int output[]) {
+        //create an arr3
+       int n = arr1.length + arr2.length;
+       int[] arr3 = new int[n];
+       int k = n-1;
+       int carry = 0;
+       int i = arr1.length-1;
+       int j = arr2.length-1;
+       while (k >= 0 && i >= 0 && j >= 0) {
+         int sum = arr1[i] + arr2[j] + carry;
+         carry = sum / 10;
+         if(sum>=10){
+              arr3[k] = sum % 10;
+         }else{
+             arr3[k] = sum;
+         }
+           i--;
+           j--;
+           k--;
+       }
+       arr3[k] = carry;
+    }
+}
