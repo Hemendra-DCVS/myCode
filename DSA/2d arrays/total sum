@@ -1,0 +1,24 @@
+
+public class Solution {
+	public static void totalSum(int[][] mat) {
+		int n = mat.length;
+		int sum =0;
+		for(int i =0; i<n; i++){
+			sum = sum + mat[0][i]; //first row sum
+			sum = sum + mat[n-1][i]; //last row sum
+		}
+		for(int i=1; i<n-1;i++){
+			  sum = sum + mat[i][0]; //first col sum
+			  sum = sum + mat[i][n-1]; //last col sum
+		}
+			
+		for(int i =1; i<n-1; i++){
+			sum = sum + mat[i][i];
+			sum = sum + mat[i][n-1-i];
+		}
+		if(n%2!=0){
+			sum = sum - mat[n/2][n/2];
+		}
+		System.out.println(sum);
+	}
+}
