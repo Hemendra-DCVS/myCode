@@ -31,6 +31,7 @@ public class Solution {
             }
             System.out.print(sum + " ");
         }
+        System.out.println(); //this line for the next input if we have multiple inputs for the test case then after completing one input we go to the next line to print the second input
 	}
 }
 
