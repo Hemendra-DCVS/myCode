@@ -1,0 +1,42 @@
+
+public class Solution {
+	public static void wavePrint(int mat[][]){
+		//Your code goes here
+        int rows = mat.length;
+         if(rows <1){
+            return;
+        }
+        int cols = mat[0].length;
+       
+        for(int i=0;i<cols-1;i++){
+            //first row
+            for(int j=0;j<rows;j++){
+                
+                System.out.print(mat[j][i] + " ");
+            }
+            // System.out.print(i);
+            i=i+1;
+            // System.out.println(i);
+            //second row
+            for(int j=rows-1;j>=0;j--){
+                System.out.print(mat[j][i] + " ");
+            } 
+        } 
+		 if(cols%2!=0){
+            for(int i=0;i<rows;i++){
+                System.out.print(mat[i][cols-1] + " ");
+            }
+        }
+		// System.out.println();
+	}
+    
+}
+
+
+//for this problem the leeson learnt is, divide the problem into minute way possible
+here we are using the loop for top to down and bottom to top and repeat it
+
+what we can do is do tranversal and repeat, what about top to down or down to top?
+use the conditioning to decide the direction, how to do it?
+if the column is even then top to down,
+if the column is odd then down to top.
