@@ -1,0 +1,106 @@
+
+public class Solution {
+
+	public static void spiralPrint(int matrix[][]){
+		
+		int rows = matrix.length;
+		if (matrix == null || rows == 0 || matrix[0].length == 0) {
+		return; // Handle edge case of empty matrix
+		}
+		int cols = matrix[0].length;
+		 int numIterations = (Math.min(rows, cols) + 1) / 2;
+		 int right = cols;
+		 int bottom = rows-1;
+		 int left = cols-1;
+		 int top = rows-2;
+		for (int layer = 0; layer < numIterations; layer++) {
+			
+			
+			for(int i=layer;i<right;i++){
+				System.out.print(matrix[layer][i] + " ");
+				// System.out.print(layer + "," + i + " ");
+				
+		    }
+			
+		
+			for(int i=layer+1;i<=bottom;i++){
+				System.out.print(matrix[i][bottom] + " ");
+			}
+			
+			for(int i=left-1;i>=layer;i--){
+				System.out.print(matrix[left][i] + " ");
+			}
+			
+			for(int i=top;i>layer;i--){
+				System.out.print(matrix[i][layer] + " ");
+			}
+
+			right--;
+			bottom--;
+			left--;
+			top--;
+			
+		}
+	}
+}
+
+
+public class Solution {
+
+	public static void spiralPrint(int matrix[][]){
+		//Your code goes here
+		int rows = matrix.length;
+		if (matrix == null || rows == 0 || matrix[0].length == 0) {
+		return; // Handle edge case of empty matrix
+		}
+		int cols = matrix[0].length;
+		//row-low, row-high and column-low, column-high pointers for index borders
+		int rl = 0;
+		int rh = rows-1;
+		int cl = 0;
+		int ch = cols-1;
+
+		int ele = rows*cols;
+		
+		while(ele > 0){
+			if(rl<rh || rl==rh)
+			for(int i=cl; i<=ch;i++){
+			System.out.print(matrix[rl][i] + " ");
+			ele--;
+			}
+			
+		
+
+			rl++;
+			if(cl<ch || cl==ch){
+				for(int i=rl;i<=rh;i++){
+				System.out.print(matrix[i][ch] + " ");
+				ele--;
+				}
+			}
+			
+
+			ch--;
+			if(rl<rh || rl==rh){
+				for(int i=ch; i>=cl;i--){
+					System.out.print(matrix[rh][i] + " ");
+					ele--;
+					
+				}
+			}
+		
+
+			rh--;
+			if(cl<ch || cl==ch){
+				for(int i=rh; i>=rl;i--){
+				System.out.print(matrix[i][cl] + " ");
+				ele--;
+				
+			}
+			}
+			
+			cl++;
+			
+		}
+	}
+}
