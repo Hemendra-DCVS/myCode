@@ -35,3 +35,5 @@ public class Solution {
 	}
 }
 
+
+// stores 2 dimensional data like matrix, chess board, image captcha

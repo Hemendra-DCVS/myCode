@@ -13,3 +13,5 @@ public class Solution {
 
 	}
 }
+
+//continuos allocation of memory ,, stores same data type
