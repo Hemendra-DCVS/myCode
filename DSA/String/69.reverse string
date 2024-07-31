@@ -1,0 +1,51 @@
+public class Solution {
+	public static String reverseWordWise(String input) {
+		// Write your code here
+        int end = input.length()-1;
+        String reversed = "";
+        for(int i=end;i>=0;i--){
+            if(input.charAt(i) == 32){
+                int space = i;
+               
+                String word = input.substring(space+1, end+1) + " ";
+                reversed += word;
+                end = space-1;
+
+            }
+        }
+		 String word = input.substring(0, end+1) + " ";
+		 reversed += word;
+        return reversed;
+	}
+}
+
+public class Solution {
+	public static String reverseWordWise(String input) {
+		// Write your code here
+		String result = "";
+		int end = input.length()-1;
+		for(int i=input.length()-1;i>=0;i--){
+			if (input.charAt(i) == 32){
+				int space = i;
+				//create a word after space;
+				String word = "";
+				for(int j= space+1; j<=end; j++){
+					word = word + input.charAt(j);
+				
+				}
+				
+				//we have word, add it to the result
+				result += word + " ";
+				end = space-1;
+
+			}
+			
+		}
+		String word = "";
+		for(int i =0;i<=end;i++){
+			word += input.charAt(i);
+		}
+		result += word;
+		return result;
+	}
+}

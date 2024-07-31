@@ -1,0 +1,25 @@
+
+public class Solution {
+
+	public static boolean isPalindrome(String str) {
+		//Your code goes here
+        if(str.length() == 0){
+            return false; //for empty string
+        }
+		if(str.length() == 1){
+            return true; //for single char
+        }
+        int left = 0;
+        int right = str.length()-1;
+        Boolean flag = true;
+        while(left<right){
+            if(str.charAt(left) != str.charAt(right)){
+                flag = false;
+            }
+            left++;
+            right--;
+        }
+        return flag;
+	}
+
+}
