@@ -1,0 +1,66 @@
+
+public class Solution {
+	public static boolean isPermutation(String str1, String str2) {
+		//Your code goes here
+		boolean isPermute = true;
+		
+		for(int i=0; i<str1.length(); i++){
+			boolean isChar = false;
+			int count = 0;
+			for(int j=0; j<str2.length(); j++){
+				if(str1.charAt(i) == str2.charAt(j)){
+					isChar = true;
+					count++;
+					// System.out.println( "truee" + i);
+				}
+				if(count>1){
+					int ele = str2.charAt(j);
+					int x = 0;
+					int y = 0;
+					for(int k=0; k<str1.length();k++){
+						if(str1.charAt(k) == ele){
+							x++;
+						}
+						if(str2.charAt(k) == ele){
+							y++;
+						}
+					}
+					if(x != y){
+						isPermute = false;
+						return isPermute;
+					}
+				}
+			}
+            if(!isChar){
+            isPermute = false;
+            // System.out.println(isPermute);
+            return isPermute;
+			}
+		}
+		return isPermute;
+	}
+}
+
+
+
+public class Solution {
+	public static boolean isPermutation(String str1, String str2) {
+		//Your code goes here
+		//256 size array 
+		int[] arr = new int[256];
+		for(int i=0; i<str1.length(); i++){
+			//store chars in an arr
+			arr[str1.charAt(i)]++;
+		}
+		for(int j=0; j<str2.length(); j++){
+			//store chars in an arr
+			arr[str2.charAt(j)]--;
+		}
+		for(int i=0; i<arr.length; i++){
+			if(arr[i] != 0){
+				return false;
+			}
+		}
+		return true;
+	}
+}
