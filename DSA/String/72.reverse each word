@@ -1,0 +1,33 @@
+
+public class Solution {
+	public static String wordReverse(String str,int start,int end){
+		StringBuilder wordReverse = new StringBuilder();
+		for(int i=end; i>=start; i--){
+			wordReverse.append(str.charAt(i));
+		}
+		return wordReverse.toString();
+	}
+
+	public static String reverseEachWord(String str) {
+		//Your code goes here
+		int length = str.length();
+		int start = 0;
+		int end = 0;
+		String result = "";
+		for(int i=0; i<length; i++){
+			if(str.charAt(i) == 32){
+				end = i-1;
+				String word = wordReverse(str, start, end);
+				start = i+1;
+				result += word + " ";
+			}
+		}
+		start = start;
+		end = length-1; 
+        //for the last word of the string, beccause there is no space, we have add this word manually
+		String word = wordReverse(str, start, end);
+		// System.out.println(word);
+		result = result + word;
+		return result;
+	}
+}
