@@ -3,6 +3,7 @@ public class Solution {
 
 	public static char highestOccuringChar(String str) {
 		//Your code goes here
+        //find the character that repeats most
 	}
 
 }
