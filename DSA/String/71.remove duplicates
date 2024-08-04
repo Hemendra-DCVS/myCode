@@ -1,0 +1,49 @@
+
+public class Solution {
+
+	public static String removeConsecutiveDuplicates(String str) {
+		//Your code goes here
+        int length = str.length();
+        if(length < 2){
+            return str;
+        }
+
+        StringBuilder sb = new StringBuilder(str);
+        if(length >= 2){
+            for(int i=0;i<str.length()-2;i++){
+                if(str.charAt(i) == str.charAt(i+1)){
+                    sb.deleteCharAt(i+1);
+                }
+            }
+        }
+
+        if(length > 2){
+             if(str.charAt(length-2) != str.charAt(length-1)){
+                sb.append(str.charAt(length-1));
+            }
+        }
+        String result = sb.toString();
+        return result;
+	}
+}
+
+
+public class Solution {
+	public static String removeConsecutiveDuplicates(String str) {
+		//Your code goes here
+        if(str.length() < 1){
+            return str;
+        }
+        char first = str.charAt(0);
+        //cannot build stringbuilder directly with char, so we have to append char to an empty stringbuilder
+        StringBuilder sb = new StringBuilder().append(first);
+        // System.out.println(sb);
+        for(int i=1; i<str.length();i++){
+            if(str.charAt(i) != sb.charAt(sb.length()-1)){
+                sb.append(str.charAt(i));
+            }
+        }
+        String result = sb.toString();
+        return result;
+	}
+}
