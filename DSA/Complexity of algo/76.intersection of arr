@@ -1,0 +1,41 @@
+public class Solution {
+
+    public static void bubbleSort(int[] arr) {
+        //sort and print
+        for(int j = arr.length-1; j>0; j--){ 
+        for(int i = 0; i<j; i++){
+            int current = i;
+            int next = i+1;
+            if(arr[current] > arr[next]){
+                int swap = arr[current];
+                arr[current] = arr[next];
+                arr[next]  = swap; 
+            }
+        }
+        }
+        for(int i=0; i<arr.length; i++){
+            if(arr[i] != 0){
+                System.out.print(arr[i] + " ");
+            }
+        }
+    }
+
+	public static void intersection(int[] arr1, int[] arr2) {
+	    //Your code goes here
+        int len = arr1.length;
+        int[] arr3 = new int[len];
+        int count =0;
+		for(int i=0; i<arr2.length; i++){
+            for(int j=0; j<arr1.length;j++){
+                if(arr2[i] == arr1[j]){
+                    int value = arr2[i];
+                    arr3[count] = value;
+                    count++;
+                    arr1[j] = 0;
+                    break;
+                }
+            }
+        }
+        bubbleSort(arr3);
+	}
+}
