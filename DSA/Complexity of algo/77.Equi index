@@ -1,0 +1,47 @@
+//this is wrong approach to the problem
+// this approach does not count all the elements on the right side to the index, it presumes that equilibrium is always the middle index, which leads to incorrect solution 
+public class Solution {
+
+	public static int arrayEquilibriumIndex(int[] arr){  
+		//Your code goes here
+        if(arr.length <1){
+            return -1;
+        }
+        int left = 0, right = arr.length-1;
+        int leftSum = arr[left], rightSum = arr[right-1];
+        while(left<right){
+            if(leftSum == rightSum){
+               return left++;
+            }
+            leftSum = arr[left] + leftSum;
+            rightSum = arr[right] + rightSum;
+            left++;
+            right--;
+        }
+        return -1;
+
+	}
+}
+
+
+
+//solution
+public class Solution {
+	public static int arrayEquilibriumIndex(int[] arr){  
+		//Your code goes here
+        int rightSum = 0, leftSum = 0;
+        for(int i=1; i<arr.length; i++){
+            rightSum = rightSum + arr[i];
+        }
+        
+        for(int i=1; i<arr.length; i++){
+            leftSum += arr[i-1];
+           
+            rightSum -= arr[i];
+            if(leftSum == rightSum){
+                return i;
+            }
+        }
+        return -1;
+	}
+}
