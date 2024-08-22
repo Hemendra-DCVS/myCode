@@ -1,0 +1,58 @@
+public class Solution {
+
+	public static int findUnique(int[] arr) {
+		//Your code goes here
+        int max = 0;
+        for(int i=0; i<arr.length;i++){
+            if(arr[i] > max){
+                max = arr[i];
+            }
+        }
+		int[] arr2 = new int[max+1];
+        for(int i=0; i<arr.length; i++){
+            int value = arr[i];
+            arr2[value]++;
+        }
+        for(int i=0; i<arr2.length; i++){
+            if(arr2[i] == 1){
+                return i;
+            }
+        }
+        return -1;
+	}
+}
+//tc: O(n)
+
+
+public class Solution {
+
+	public static int findUnique(int[] arr) {
+		//Your code goes here
+        int result = 0;
+        for(int i=0;i<arr.length;i++){
+            result = result ^ arr[i];
+        }
+        return result;
+	}
+}
+//tc: O(n)
+
+
+
+import java.util.*;
+public class Solution {
+	public static int findUnique(int[] arr) {
+		//Your code goes here
+		ArrayList<Integer> arr2 = new ArrayList<>();
+        for(int i=0; i<arr.length; i++){
+            int value = arr[i];
+            if (arr2.contains(value)) {
+                    arr2.remove(Integer.valueOf(value));
+                } else {
+                    arr2.add(value);
+                }
+            }
+            return arr2.size() == 1 ? arr2.get(0) : -1;
+        }
+}
+//tc: O(n)
