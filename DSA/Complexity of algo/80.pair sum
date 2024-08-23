@@ -16,3 +16,27 @@ public class Solution {
 	}
 }
 //tc: O(n^2)
+
+
+//this solution is incomplete
+import java.util.*;
+public class Solution {	
+
+	public static int pairSum(int[] arr, int num) {
+		//Your code goes here
+        Arrays.sort(arr);
+        int left =0, pair=0, right = arr.length-1;
+        while(left < right){
+            if(arr[left] + arr[right] == num){
+                pair++;
+                left++;
+            }else if(arr[left] + arr[right] < num){
+                left++;
+            }else if(arr[left] + arr[right] > num){
+                right--;
+            }
+        }
+        return pair;
+	}
+}
+//tc: O(nlogn)
