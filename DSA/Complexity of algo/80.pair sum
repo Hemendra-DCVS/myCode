@@ -23,24 +23,25 @@ public class Solution {
 	public static int pairSum(int[] arr, int num) {
 		//Your code goes here
         Arrays.sort(arr);
-        int left =0, pair=0, right = arr.length-1;
+        int pair=0, left = 0, right = arr.length-1;
         while(left < right){
             int sum = arr[left] + arr[right];
             if(sum < num){
                 left++;
+
             }else if(sum > num){
                 right--;
+                
             }else if(sum == num){
                  int duplicateCount = 0;
                 if(arr[left] != arr[right]){
-                    int leftCount = 1, rightCount =1;
+                    int leftCount = 1, rightCount = 1;
                     int leftValue = arr[left], rightValue = arr[right];
                     for(int i=left+1; i<right; i++){
                         if(arr[i] == leftValue){
                             leftCount++;
                             left++;
                         }
-                        
                     }
                     for(int j=right-1; j>left; j--){
                         if(arr[j] == rightValue){
@@ -49,6 +50,7 @@ public class Solution {
                         }
                     }
                     duplicateCount = leftCount*rightCount;
+
                 }else if(arr[left] == arr[right]){
                     // int n =0;
                     // for(int i=0; i<arr.length; i++){
@@ -58,7 +60,7 @@ public class Solution {
                     // }
                     int n = right - left + 1;
                     duplicateCount = n*(n-1) / 2;
-                      left += duplicateCount;
+                    left += duplicateCount;
                 }
                 pair = pair + duplicateCount;
                 left++;
