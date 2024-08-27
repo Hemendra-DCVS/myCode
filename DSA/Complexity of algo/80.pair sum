@@ -125,12 +125,10 @@ public class Solution {
 //final solution
 import java.util.*;
 public class Solution {	
-
 	public static int pairSum(int[] arr, int num) {
 		//Your code goes here
         Arrays.sort(arr);
         int left =0, pair=0, right = arr.length-1;
-        
         while(left < right){
             int sum = arr[left] + arr[right];
             if(sum < num){
@@ -138,7 +136,6 @@ public class Solution {
             }else if(sum > num){
                 right--;
             }else if(sum == num){
-                // System.out.println(left + "," + right);
                  int duplicateCount = 0;
                 if(arr[left] != arr[right]){
                     int leftCount = 1, rightCount =1;
@@ -146,23 +143,17 @@ public class Solution {
                     for(int i=left+1; i<right; i++){
                         if(arr[i] == leftValue){
                             leftCount++;
-                            // System.out.println(i + "," + arr[i]);
                             left++;
                         }
                         
                     }
                     for(int j=right-1; j>left; j--){
-                       
                         if(arr[j] == rightValue){
                             rightCount++;
-                            // System.out.println(j + "," +  arr[j]);
                             right--;
                         }
                     }
-                   
-                    // right = right-(rightCount-1);
                     duplicateCount = leftCount*rightCount;
-                    // System.out.println(duplicateCount);
                 }else if(arr[left] == arr[right]){
                     // int n =0;
                     // for(int i=0; i<arr.length; i++){
@@ -172,16 +163,10 @@ public class Solution {
                     // }
                     int n = right - left + 1;
                     duplicateCount = n*(n-1) / 2;
-                    //   System.out.println(duplicateCount);
                       left += duplicateCount;
-                    // break;
-                    
                 }
-                //  System.out.println(left + "," + pair + "," + right);
-               
                 pair = pair + duplicateCount;
                 left++;
-                
             }
         }
         return pair;
