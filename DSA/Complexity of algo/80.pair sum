@@ -67,3 +67,124 @@ public class Solution {
 	}
 }
 //tc: O(nlogn)
+
+
+
+
+
+
+//pure gpt
+import java.util.*;
+public class Solution {	
+
+	public static int pairSum(int[] arr, int num) {
+		Arrays.sort(arr);
+        int left = 0, right = arr.length - 1;
+        int pairCount = 0;
+
+        while (left < right) {
+            int sum = arr[left] + arr[right];
+
+            if (sum < num) {
+                left++;
+            } else if (sum > num) {
+                right--;
+            } else {
+                if (arr[left] == arr[right]) {
+                    // All elements between left and right are the same
+                    int n = right - left + 1;
+                    pairCount += (n * (n - 1)) / 2;  // nC2 = n*(n-1)/2
+                    break;  // All pairs are counted
+                } else {
+                    // Count duplicates for arr[left] and arr[right]
+                    int leftCount = 1, rightCount = 1;
+
+                    while (left + 1 < right && arr[left] == arr[left + 1]) {
+                        leftCount++;
+                        left++;
+                    }
+
+                    while (right - 1 > left && arr[right] == arr[right - 1]) {
+                        rightCount++;
+                        right--;
+                    }
+
+                    pairCount += leftCount * rightCount;
+                    left++;
+                    right--;
+                }
+            }
+        }
+
+        return pairCount;
+	}
+}
+
+
+
+//final solution
+import java.util.*;
+public class Solution {	
+
+	public static int pairSum(int[] arr, int num) {
+		//Your code goes here
+        Arrays.sort(arr);
+        int left =0, pair=0, right = arr.length-1;
+        
+        while(left < right){
+            int sum = arr[left] + arr[right];
+            if(sum < num){
+                left++;
+            }else if(sum > num){
+                right--;
+            }else if(sum == num){
+                // System.out.println(left + "," + right);
+                 int duplicateCount = 0;
+                if(arr[left] != arr[right]){
+                    int leftCount = 1, rightCount =1;
+                    int leftValue = arr[left], rightValue = arr[right];
+                    for(int i=left+1; i<right; i++){
+                        if(arr[i] == leftValue){
+                            leftCount++;
+                            // System.out.println(i + "," + arr[i]);
+                            left++;
+                        }
+                        
+                    }
+                    for(int j=right-1; j>left; j--){
+                       
+                        if(arr[j] == rightValue){
+                            rightCount++;
+                            // System.out.println(j + "," +  arr[j]);
+                            right--;
+                        }
+                    }
+                   
+                    // right = right-(rightCount-1);
+                    duplicateCount = leftCount*rightCount;
+                    // System.out.println(duplicateCount);
+                }else if(arr[left] == arr[right]){
+                    // int n =0;
+                    // for(int i=0; i<arr.length; i++){
+                    //     if(arr[i] == arr[left]){
+                    //         n++;
+                    //     }
+                    // }
+                    int n = right - left + 1;
+                    duplicateCount = n*(n-1) / 2;
+                    //   System.out.println(duplicateCount);
+                      left += duplicateCount;
+                    // break;
+                    
+                }
+                //  System.out.println(left + "," + pair + "," + right);
+               
+                pair = pair + duplicateCount;
+                left++;
+                
+            }
+        }
+        return pair;
+	}
+}
+//tc: O(nlogn)
