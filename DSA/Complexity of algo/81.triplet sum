@@ -19,34 +19,72 @@ public class Solution {
 
 import java.util.*;
 public class Solution {	
-	public static int tripletSum(int[] arr, int num) {
-		//Your code goes here
-		Arrays.sort(arr);  
-        int pair = 0;
-        for (int i = 0; i < arr.length - 2; i++) {
-            int j = i + 1; 
-            int k = arr.length - 1;
-            while (j < k) { 
-                int sum = arr[i] + arr[j] + arr[k];
-                if (sum == num) {
-                    pair++;
-                    // while (j < k && arr[j] == arr[j - 1]) {
-                    //     j++;
-					// 	pair++;
-                    // }
-                    while (j < k && arr[k] == arr[k - 1]) {
-						pair++;
-                        k--;
+
+    public static int pairSum(int[] arr, int i, int j,   int num){
+        //Your code goes here
+       
+        int pair=0, left = i, right = j;
+        while(left < right){
+            int sum = arr[left] + arr[right];
+            if(sum < num){
+                left++;
+
+            }else if(sum > num){
+                right--;
+                
+            }else if(sum == num){
+                 int duplicateCount = 0;
+                if(arr[left] != arr[right]){
+                    int leftCount = 1, rightCount = 1;
+                    int leftValue = arr[left], rightValue = arr[right];
+                    for(int ii=left+1; ii<right; ii++){
+                        if(arr[ii] == leftValue){
+                            leftCount++;
+                            left++;
+                        }
                     }
-					j++;
-                } else if (sum < num) {
-                    j++; 
-                } else {
-                    k--; 
+                    for(int jj=right-1; jj>left; jj--){
+                        if(arr[jj] == rightValue){
+                            rightCount++;
+                            right--;
+                        }
+                    }
+                    duplicateCount = leftCount*rightCount;
+
+                }else if(arr[left] == arr[right]){
+                    // int n =0;
+                    // for(int i=0; i<arr.length; i++){
+                    //     if(arr[i] == arr[left]){
+                    //         n++;
+                    //     }
+                    // }
+                    int n = right - left + 1;
+                    duplicateCount = n*(n-1) / 2;
+                    left += duplicateCount;
                 }
+                pair = pair + duplicateCount;
+                left++;
             }
         }
         return pair;
+    }
+
+	public static int tripletSum(int[] arr, int num) {
+		//Your code goes here
+         Arrays.sort(arr);
+        int triplets =0;
+        for(int i=0;i<arr.length-2; i++){
+           
+            int j = i+1;
+            int k= arr.length-1;
+            int target = num - arr[i];
+
+            int pairs = pairSum(arr, j , k, target);
+           
+            triplets += pairs;
+        }
+        return triplets;
+        
 	}
 }
-//tc: O(n^2)
+//tc:O(n^2)
