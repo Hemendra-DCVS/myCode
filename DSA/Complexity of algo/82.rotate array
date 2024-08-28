@@ -3,6 +3,68 @@ public class Solution {
 
     public static void rotate(int[] arr, int d) {
     	//Your code goes here
+        int[] temp = new int[d];
+
+        //store starting d elemnets in a seperate array
+        for(int i=0; i<d; i++){
+            temp[i] = arr[i];
+        }
+
+        //put starting elements in correct position
+        for(int i=0; i<arr.length-d;i++){
+            arr[i] = arr[i+d];
+        }
+
+        //copy last d elements from temporary array
+        for(int i=0; i<d;i++){
+            arr[arr.length-d + i] = temp[i];
+        }
     }
 
 }
+
+//tc: O(n)
+//space complexity : size of temp array is d, i.e; O(d)
+
+
+
+
+public class Solution {  
+
+    public static void rotate(int[] arr, int d) {
+    	//Your code goes here
+        int i=0, j=arr.length-1;
+        //swap whole array once
+        while(i<j){ 
+            int temp=arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+            i++;
+            j--;
+        }
+        
+        //swap last d elements once
+        i=arr.length-d;
+        j=arr.length-1;
+        while(i<j){ 
+            int temp=arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+             i++;
+            j--;
+        }
+
+        //swap first n-d elements once
+        i=0;
+        j=arr.length-d-1;
+        while(i<j){ 
+            int temp=arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+             i++;
+            j--;
+        }
+    }
+
+}
+//tc: O(n)
