@@ -1,0 +1,16 @@
+public class Solution {
+
+	public static int power(int x, int n) {
+
+		 //base case
+			if(n == 0){
+				return 1;
+			}
+		 //hypothesis
+			int smallOutput = power(x, n-1);
+		 //induction
+			int output = x* smallOutput;
+
+			return output;
+	}
+}
