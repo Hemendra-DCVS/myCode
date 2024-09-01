@@ -1,0 +1,20 @@
+public class Solution {
+
+	public static int sum(int input[]) {
+		//base case
+		int n= input.length;
+		//if length is zero return
+		if(n==0 ){
+			return 0;
+		}
+		//hypothesis
+		int[] sa = new int[n-1];
+		for(int i=1; i<input.length;i++){
+			sa[i-1] = input[i];
+		}
+		int so = sum(sa);
+		//induction
+		int o = input[0] + so;
+		return o;
+	}
+}
