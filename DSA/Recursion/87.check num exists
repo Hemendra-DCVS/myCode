@@ -1,0 +1,26 @@
+public class Solution {
+	
+	public static boolean checkNumber(int input[], int x) {
+	//check x exists in the input[]
+	int n= input.length;
+	
+	//base case
+	if(n == 0){
+		return false;
+	}
+	if(input[0] == x){
+		return true;
+	}
+	//hypothesis
+	int[] sa = new int[n-1];
+	for(int i=1; i<input.length; i++){
+		sa[i-1] = input[i];
+	}
+	boolean so = checkNumber(sa, x);
+	//induction
+	/* here theres no induction step we are writing why?
+	because first we are checking the original array if only if it fails to satisfy the condition
+	then we are calling the small array, so the overall result depends on the small array's output */
+	return so;
+	}
+}
