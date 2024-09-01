@@ -1,0 +1,19 @@
+public class Solution {
+
+	public static void print(int n){
+		//Write your code here
+		//base case
+		if(n==0){
+			return;
+		}
+		//hypothesis
+		print(n-1);
+		//induction
+		System.out.print(n + " ");
+		return;
+	}
+}
+
+/* note: the base case is always at the top, 
+  if you change the order of the hypothesis and induction, 
+  then output will be printed in the reverse order */
