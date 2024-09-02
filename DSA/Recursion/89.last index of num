@@ -1,0 +1,57 @@
+
+public class Solution {
+
+	public static int lastIndex(int input[], int x, int si){
+		//base case
+		if(si == input.length-1){
+			return -1;
+		}
+		//hypothesis
+		int so = lastIndex(input, x, ++si);
+
+
+
+		//induction
+		int answer = -1;
+		if(input[si] == x){
+			answer = si;
+		}
+		if(so > -1){
+			answer = so;
+		}
+
+		return answer;
+	}
+
+	public static int lastIndex(int input[], int x) {
+		
+
+		return lastIndex(input, x, 0);
+	}
+	
+}
+
+// theres a reversal transversal method to easily find 	
+public class Solution {
+	public static int lastIndex(int input[], int x, int si){
+		//base case
+		if(si < 0 ){
+			return -1;
+		}
+		if(input[si] == x){
+			return si;
+		}
+
+		//hypothesis
+		int so = lastIndex(input, x, --si);
+
+		//induction
+
+		return so;
+	}
+
+	public static int lastIndex(int input[], int x) {
+		return lastIndex(input, x, input.length-1);
+		
+	}
+}
