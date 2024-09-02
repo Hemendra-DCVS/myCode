@@ -1,0 +1,26 @@
+
+public class Solution {
+	public static int firstIndex(int input[], int x, int si){
+		//base case
+		if(si == input.length){
+			return -1;
+		}
+		if(input[si] == x){
+			return si;
+		
+		}
+
+		//hypothesis
+		int so = firstIndex(input, x, ++si);
+
+		//induction
+
+		return so;
+	}
+
+	public static int firstIndex(int input[], int x) {
+		//find the index of x in input[]
+		return firstIndex(input, x, 0); //same function with custom arguments
+
+	}
+}
