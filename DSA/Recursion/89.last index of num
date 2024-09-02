@@ -3,11 +3,11 @@ public class Solution {
 
 	public static int lastIndex(int input[], int x, int si){
 		//base case
-		if(si == input.length-1){
+		if(si == input.length){
 			return -1;
 		}
 		//hypothesis
-		int so = lastIndex(input, x, ++si);
+		int so = lastIndex(input, x, si+1);
 
 
 
@@ -24,9 +24,8 @@ public class Solution {
 	}
 
 	public static int lastIndex(int input[], int x) {
-		
-
 		return lastIndex(input, x, 0);
+		
 	}
 	
 }
