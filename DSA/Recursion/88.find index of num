@@ -20,7 +20,8 @@ public class Solution {
 
 	public static int firstIndex(int input[], int x) {
 		//find the index of x in input[]
-		return firstIndex(input, x, 0); //same function with custom arguments
+		//when our function needs additional parameters like startIndex then create a new function
+		return firstIndex(input, x, 0); //same function with custom arguments here 0 is si
 
 	}
 }
