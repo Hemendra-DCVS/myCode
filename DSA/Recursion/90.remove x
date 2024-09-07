@@ -1,0 +1,20 @@
+import java.util.*;
+public class solution {
+
+	// Return the changed string
+	public static String removeX(String input){
+		// Write your code here
+		//base case
+		if( input.length()==0 ){
+				return " ";
+		}
+		//hypothesis
+		String so = removeX(input.substring(1));
+		//induction
+		if(input.charAt(0) == 'x' ){
+			return so;
+		}else{
+			return input.charAt(0) + so;
+		}
+	}
+}
