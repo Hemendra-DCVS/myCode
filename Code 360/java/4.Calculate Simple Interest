@@ -1,0 +1,20 @@
+import java.util.* ;
+import java.io.*; 
+class Solution {
+	
+	public static void main(String args[]) {
+		
+		// Write code here
+		Scanner s = new Scanner(System.in);
+		int p = s.nextInt();
+        
+        float r = s.nextFloat();
+        int t = s.nextInt();
+
+        float si = (p*t*r)/100;
+
+        int result = (int)si;
+
+        System.out.println(result);
+	}
+}
