@@ -1,0 +1,31 @@
+import java.util.* ;
+import java.io.*; 
+class Solution {
+	
+	public static void main(String args[]) {
+		
+		// Write code here
+		Scanner s = new Scanner(System.in);
+
+		int TS = s.nextInt();
+		int G = s.next().charAt(0);
+
+		double salary = TS + (TS * 59/100.0);
+		
+		switch(G){
+			case 'A':
+			salary += 1700;
+			break;
+
+			case 'B':
+			salary += 1500;
+			break;
+
+			default:
+			salary += 1300;
+
+		}
+		System.out.println(Math.round(salary));
+		
+	}
+}
