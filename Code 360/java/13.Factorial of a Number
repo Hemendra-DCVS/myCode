@@ -1,0 +1,15 @@
+import java.util.*;
+class Solution {
+	public static void main(String args[]) {
+		// Write code here
+		Scanner s = new Scanner(System.in);
+		int num = s.nextInt();
+		int fact=1;
+		if(num>0){
+			for(int i=num; i>1;i--){
+			fact = fact*i;
+			}
+		}
+		System.out.println(num>-1 ? fact : "Error" );
+	}
+}

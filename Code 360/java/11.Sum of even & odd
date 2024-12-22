@@ -1,0 +1,24 @@
+import java.util.*;
+
+class Solution {
+	
+	public static void main(String args[]) {
+		
+		// Write code here
+		Scanner s= new Scanner(System.in);
+		int number = s.nextInt();
+
+		int es = 0,  odds = 0;
+
+		while(number > 0){
+			int num = number%10;
+			if(num%2 == 0){
+				es += num;
+			}else{
+				odds += num;
+			}
+			number = number/10;
+		}
+		System.out.println(es + " " + odds);
+	}
+}

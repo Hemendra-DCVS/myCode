@@ -13,9 +13,9 @@ class Solution {
 		for(int i =st; i<=e; i=i+step){
 			int c = (i - 32) * 5/9;
 			if(c<=0){
-				System.out.println(i + " " + (int)Math.floor(c));
+				System.out.println(i + "\t" + (int)Math.floor(c));
 			}else{
-				System.out.println(i + " " + (int)Math.ceil(c));
+				System.out.println(i + "\t" + (int)Math.ceil(c));
 			}
 		}
 
