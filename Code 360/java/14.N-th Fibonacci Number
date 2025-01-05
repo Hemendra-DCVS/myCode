@@ -2,23 +2,35 @@ import java.util.* ;
 import java.io.*; 
 public class Solution{
     public static int fibonacciNumber(int n){
-        // Write your code here.
          if(n == 1 || n==2){
             return 1;
         }
         int fib1=1;
         int fib2=1;
-       
         int fib = 1;
         for(int i=3; i<=n;i++){
-            
             fib = (fib1 + fib2) % 1000000007;
             fib2 = fib1;
-            fib1 = fib;
-           
-          
-        }
-      
+            fib1 = fib; 
+        } 
         return fib;
+    }
+}
+
+
+import java.util.* ;
+import java.io.*; 
+public class Solution{
+    public static int fibonacciNumber(int n){
+        if(n==1 || n==2){
+            return 1;
+        }
+         int[] fib = new int[n + 1];
+         fib[1] = 1;
+         fib[2] = 1;
+        for(int i=3; i<=n; i++){
+            fib[i] = (fib[i-1] + fib[i-2]) % 1000000007;
+        }
+        return fib[n] ;
     }
 }
