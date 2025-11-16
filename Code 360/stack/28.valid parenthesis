@@ -1,0 +1,33 @@
+import java.util.Stack;
+
+public class Solution {
+    public static boolean isValidParenthesis(String s) {
+        // Stack to store opening parentheses
+        Stack<Character> stack = new Stack<>();
+        
+        // Iterate through each character in the string
+        for (char ch : s.toCharArray()) {
+            // If it's an opening parenthesis, push it onto the stack
+            if (ch == '(' || ch == '{' || ch == '[') {
+                stack.push(ch);
+            } 
+            // If it's a closing parenthesis, check the stack
+            else if (ch == ')' || ch == '}' || ch == ']') {
+                // If the stack is empty or the top does not match the closing parenthesis, return false
+                if (stack.isEmpty() || !isMatchingPair(stack.pop(), ch)) {
+                    return false;
+                }
+            }
+        }
+        
+        // If the stack is empty, the string is valid (balanced), else it's invalid
+        return stack.isEmpty();
+    }
+
+    // Helper method to check if the opening and closing parentheses match
+    private static boolean isMatchingPair(char open, char close) {
+        return (open == '(' && close == ')') ||
+               (open == '{' && close == '}') ||
+               (open == '[' && close == ']');
+    }
+    }

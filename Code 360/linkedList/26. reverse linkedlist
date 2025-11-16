@@ -1,0 +1,17 @@
+
+public class Solution
+{
+    public static Node reverseLinkedList(Node head)
+    {
+        // Write your code here.
+        Node prev = null;
+        Node current = head;
+        while(current != null){
+            Node nextnode = current.next;
+            current.next = prev;
+            prev = current;
+            current = nextnode;
+        }
+        return prev;
+    }
+}

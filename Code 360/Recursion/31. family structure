@@ -1,0 +1,38 @@
+public class Solution {
+
+    public static String kthChildNthGeneration(int n, long k) {
+        // Base case: The first generation (Aakash) is always Male
+        if (n == 1) {
+            return "Male";
+        }
+
+        // Calculate the midpoint for the current generation
+        long mid = 1L << (n - 1);  // This is 2^(n-1)
+
+        // If k is in the first half of the children
+        if (k <= mid) {
+            // If K is in the first half, check the gender of the first child of the parent
+            if (kthChildNthGeneration(n - 1, k) == "Male") {
+                return "Male"; // Male parent gives male child first
+            } else {
+                return "Female"; // Female parent gives female child first
+            }
+        } else {
+            // If K is in the second half, check the gender of the second child of the parent
+            if (kthChildNthGeneration(n - 1, k - mid) == "Male") {
+                return "Female"; // Male parent gives female child second
+            } else {
+                return "Male"; // Female parent gives male child second
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        // Test cases based on input format
+        System.out.println(kthChildNthGeneration(2, 2)); // Output: Female
+        System.out.println(kthChildNthGeneration(3, 4)); // Output: Male
+        System.out.println(kthChildNthGeneration(3, 5)); // Output: Male
+        System.out.println(kthChildNthGeneration(3, 1)); // Output: Male
+        System.out.println(kthChildNthGeneration(4, 4)); // Output: Male
+    }
+}

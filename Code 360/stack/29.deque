@@ -1,0 +1,104 @@
+import java.util.*;
+
+public class Deque {
+    private int[] deque;   // Array to store elements of the deque
+    private int front, rear, size, capacity;
+
+    // Constructor to initialize the deque with size 'n'
+    public Deque(int n) {
+        capacity = n;
+        deque = new int[capacity];
+        front = -1; // Deque is initially empty
+        rear = -1;
+        size = 0;
+    }
+
+    // Pushes 'X' in the front of the deque. Returns true if it gets pushed into the deque, and false otherwise.
+    public boolean pushFront(int x) {
+        if (isFull()) {
+            return false;
+        }
+        if (isEmpty()) {
+            front = rear = 0; // For the first element, both front and rear point to the same index
+        } else {
+            front = (front - 1 + capacity) % capacity; // Circular increment
+        }
+        deque[front] = x;
+        size++;
+        return true;
+    }
+
+    // Pushes 'X' in the back of the deque. Returns true if it gets pushed into the deque, and false otherwise.
+    public boolean pushRear(int x) {
+        if (isFull()) {
+            return false;
+        }
+        if (isEmpty()) {
+            front = rear = 0; // For the first element, both front and rear point to the same index
+        } else {
+            rear = (rear + 1) % capacity; // Circular increment
+        }
+        deque[rear] = x;
+        size++;
+        return true;
+    }
+
+    // Pops an element from the front of the deque. Returns -1 if the deque is empty, otherwise returns the popped element.
+    public int popFront() {
+        if (isEmpty()) {
+            return -1;
+        }
+        int poppedValue = deque[front];
+        if (front == rear) {
+            front = rear = -1; // Reset to empty state when the deque becomes empty
+        } else {
+            front = (front + 1) % capacity; // Circular increment
+        }
+        size--;
+        return poppedValue;
+    }
+
+    // Pops an element from the back of the deque. Returns -1 if the deque is empty, otherwise returns the popped element.
+    public int popRear() {
+        if (isEmpty()) {
+            return -1;
+        }
+        int poppedValue = deque[rear];
+        if (front == rear) {
+            front = rear = -1; // Reset to empty state when the deque becomes empty
+        } else {
+            rear = (rear - 1 + capacity) % capacity; // Circular decrement
+        }
+        size--;
+        return poppedValue;
+    }
+
+    // Returns the first element of the deque. If the deque is empty, it returns -1.
+    public int getFront() {
+        if (isEmpty()) {
+            return -1;
+        }
+        return deque[front];
+    }
+
+    // Returns the last element of the deque. If the deque is empty, it returns -1.
+    public int getRear() {
+        if (isEmpty()) {
+            return -1;
+        }
+        return deque[rear];
+    }
+
+    // Returns true if the deque is empty. Otherwise returns false.
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    // Returns true if the deque is full. Otherwise returns false.
+    public boolean isFull() {
+        return size == capacity;
+    }
+
+    // For testing the operations
+   
+}

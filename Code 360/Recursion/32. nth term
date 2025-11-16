@@ -1,0 +1,33 @@
+
+public class Solution {
+    
+    public static int nthTermOfGP(int N, int A, int R) {
+        // Write you code here
+        int MOD = 1000000007;
+        if(N == 1){
+            return A % MOD;
+        }
+        int so = nthTermOfGP(N-1, A, R) % MOD;
+        int o = (so * R) %MOD;
+        return ((o + MOD ) % MOD);
+    }
+}
+
+import java.util.*;
+public class Solution {
+    
+    public static int nthTermOfGP(int N, int A, int R) {
+        // Write you code here
+        // int ratio = Math.pow(A, N-1);
+        // int ans = A * ratio;
+        // return ans % 100000007;
+        long ratio = (long) Math.pow(R, N - 1); 
+        
+        // The result of A * R^(N-1) is calculated
+        long ans = (long) A * ratio;  // Convert A * ratio to long to avoid overflow
+        
+        // Taking the result modulo 1000000007
+        return (int)(ans % 1000000007);
+    }
+
+}

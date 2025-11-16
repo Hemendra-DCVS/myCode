@@ -1,0 +1,49 @@
+import java.util.* ;
+import java.util.Stack;
+import java.io.*; 
+import java.util.ArrayList;
+
+public class Solution 
+{
+    public static boolean findRedundantBrackets(String s) 
+    {   
+        // Initialize a stack to store characters during the traversal
+        Stack<Character> stack = new Stack<>();
+        
+        // Traverse through the string
+        for (int i = 0; i < s.length(); i++) {
+            char currentChar = s.charAt(i);
+            
+            if (currentChar == ')') {
+                // If we encounter a closing parenthesis, check for redundancy
+                boolean isRedundant = true;
+                
+                // Pop from stack until we encounter an opening parenthesis '('
+                while (!stack.isEmpty() && stack.peek() != '(') {
+                    char top = stack.pop();
+                    
+                    // If we encounter an operator, it's not redundant
+                    if (top == '+' || top == '-' || top == '*' || top == '/') {
+                        isRedundant = false;
+                    }
+                }
+                
+                // Pop the opening parenthesis '('
+                if (!stack.isEmpty() && stack.peek() == '(') {
+                    stack.pop();  // Remove the '(' from the stack
+                }
+                
+                // If no operator was found between the parentheses, it's redundant
+                if (isRedundant) {
+                    return true;
+                }
+            } else {
+                // Push the character to the stack (for parentheses and operands)
+                stack.push(currentChar);
+            }
+        }
+        
+        // If no redundant parentheses were found
+        return false;
+    }
+    }

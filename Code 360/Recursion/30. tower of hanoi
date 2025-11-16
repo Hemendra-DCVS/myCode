@@ -1,0 +1,32 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+public class Solution 
+{   
+    static void hanoi(int n, int s, int m, int e, ArrayList <ArrayList<Integer>> moves){
+        //base case
+        if(n==1){
+            ArrayList<int []> move = new ArrayList<>();
+            move.add(new int[]{s, e});
+            moves.add(move);
+            return;
+        }
+
+        //hypothesis
+        hanoi(n-1, s, m, e, moves);
+
+        //induction step
+        ArrayList<int []> move2 = new ArrayList<>();
+        move2.add(new int[]{s, e});;
+        moves.add(move2);
+        hanoi(n-1, m, e, s, moves);
+        
+    }
+
+    public static ArrayList<ArrayList<Integer>> towerOfHanoi(int n) 
+    {
+        //    Write your code here.
+        ArrayList <ArrayList<Integer>> moves = new ArrayList<>();
+        hanoi(n, 1,2,3,moves);
+        return moves;
+    }
+} 
